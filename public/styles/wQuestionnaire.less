@@ -1,0 +1,95 @@
+.wrap {
+  min-height: 69%;
+  height: auto;
+  animation: softRender .5s 1 ease;
+  padding-top: 5%;
+  legend {
+    text-align: center;
+  }
+}
+
+.separate {
+  margin: auto;
+  background: -webkit-radial-gradient(rgb(157, 29, 31), rgba(255, 255, 255, 0));
+  background: radial-gradient(rgb(157, 29, 31), rgba(255, 255, 255, 0));
+  width: 1px;
+  height: 200px;
+}
+
+.wedding-day {
+  margin-top: 20px;
+}
+
+.step-form {
+  min-height: 400px;
+  height: auto;
+  display: block;
+}
+
+.step-form-aboutWedding {
+  height: 1000px;
+  display: block;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 10px auto 0;
+}
+
+#steps {
+  margin: 80px 0 0 0
+}
+
+.commands {
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.prev {
+  float: left;
+  border-radius: 0;
+}
+
+.next, .submit {
+  float: right
+}
+
+.next {
+  color: #c10500;
+  background-color: #ffffff;
+  border-color: #c10500;
+  border-radius: 0;
+  &:hover {
+    border-color: #c10500!important;
+    background-color: #c10500!important
+  }
+  &:focus{
+    border-color: #900500!important;
+    background-color: #900500!important
+  }
+
+  &:active{
+    border-color: #900500!important;
+    background-color: #900500!important
+  }
+}
+
+.error {
+  color: #b33;
+}
+
+#progress {
+  position: relative;
+  height: 5px;
+  background-color: #eee;
+  margin-bottom: 20px;
+}
+
+#progress-complete {
+  border: 0;
+  position: absolute;
+  height: 5px;
+  min-width: 10px;
+  background-color: #c10500;
+  transition: width .2s ease-in-out;
+}

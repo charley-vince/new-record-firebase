@@ -1,0 +1,105 @@
+@font-face {
+  font-family: CGB;
+  src: url('../fonts/CenturyGothicRegular.ttf');
+}
+
+@font-face {
+  font-family: Drugs;
+  src: url('../fonts/Drugs.otf');
+}
+
+hr{
+ color: #3b3b43;
+}
+.container{
+  animation: softRender .5s 1 ease;
+}
+.about-title,.our-clients-title  {
+  span {
+    font-family: HelveticaNeue, serif !important;
+  }
+  text-align: center;
+  margin-top: 50px;
+  font-weight: bold;
+  color: #4b4b4b;
+  font-size: 30px;
+}
+.our-clients-title{
+  margin-top: 0!important;
+}
+
+.about-text {
+  span{
+    font-family: CGB, serif !important;
+  }
+  color: #000000;
+  text-align: center;
+  font-size: 17px;
+}
+
+
+.about-decoration-blockborder {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: -webkit-radial-gradient(closest-side, rgb(143, 27, 27), rgba(255, 255, 255, 0));
+  background: radial-gradient(closest-side, rgb(157, 29, 31), rgba(255, 255, 255, 0));
+  height: 2px;
+}
+
+.item {
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 270px;
+  .item-icon{
+    text-align: center;
+  }
+  .item-title {
+    span {
+      font-family: HelveticaNeue, serif !important;
+    }
+    font-size: 16px;
+    color: rgb(72, 72, 72);
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 5px;
+  }
+  & ul {
+    margin-top: 20px;
+    text-align: left;
+    color: rgb(27, 27, 27);
+  }
+  & li {
+    font-family: CGB, serif !important;
+  }
+}
+
+
+.clients-logo {
+  width: 600px;
+  height: auto;
+  margin: auto;
+}
+
+.ul-center {
+  padding-left: 0 ;
+  text-align: center !important;
+}
+.partner-logo {
+  display: inline-block;
+  float:none;
+  margin-bottom: 10px;
+}
+
+
+
+@media screen  and(max-width: 768px){
+  .about-text{
+    font-size: 15px;
+  }
+  .about-title,.our-clients-title{
+    font-size: 28px;
+  }
+
+  .clients-logo {
+    width: 500px;
+  }
+}
