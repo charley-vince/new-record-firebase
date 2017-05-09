@@ -26,18 +26,18 @@ class Portfolio extends React.Component {
 		})
 	}
 	render() {
-		const {isFetching, clipList, activePage, tag} = this.props
-		const isEmpty = clipList.clips.length === 0
-		const clipsCached = clipList.tag === tag && clipList.clips.length !== 0
-		if (this.props.clipError && isEmpty) {
-			return <Notification error={this.props.clipError} />
+		const {isFetching, clipList, activePage, tag, clipError} = this.props
+		//Consider empty if clips for current tag weren't fetched, or fetched empty list
+		const isEmpty = clipList.tag!=tag || clipList.clips.length === 0
+		if (clipError && isEmpty) {
+			return <Notification error={clipError} />
 		}
 		if (isFetching) {
 			return <Loading />
 		}
 		return (
 			<div>
-				{clipsCached
+				{!isEmpty
 					? <ClipList
 							perPage={3}
 							clips={clipList.clips}

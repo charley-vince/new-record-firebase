@@ -11,8 +11,6 @@ const initialState = {
 
 export default function(state = initialState, action) {
 	switch (action.type) {
-		// case actions.CONNECTION_LOST:
-		// case actions.CONNECTION_ESTABLISHED:
 		case actions.GET_CLIP_LIST_REQUEST:
 		case actions.GET_PRESENTATION_CLIP_REQUEST:
 			return {...state, isFetching: true}
@@ -39,18 +37,6 @@ export default function(state = initialState, action) {
 		case actions.GET_CLIP_LIST_FAILURE:
 			return {...state, isFetching: false}
 
-		case actions.ADD_CLIP_FAILURE:
-		case actions.REMOVE_CLIP_FAILURE:
-		case actions.CHANGE_PRESENTATION_CLIP_FAILURE:
-			return {...state}
-
-		case actions.ADD_CLIP_SUCCESS:
-		case actions.CHANGE_PRESENTATION_CLIP_SUCCESS:
-		case actions.ADD_CLIP_REQUEST:
-		case actions.CHANGE_PRESENTATION_CLIP_REQUEST:
-		case actions.REMOVE_CLIP_REQUEST: {
-			return {...state}
-		}
 		default:
 			return state
 	}

@@ -62,12 +62,20 @@ class AdminPage extends React.Component {
 	}
 
 	render() {
-		const {isFetching, clipList, activePage, tag} = this.props
-		const isEmpty = clipList.clips.length === 0
-		console.log(this.props)
+		const {
+			isFetching,
+			clipList,
+			activePage,
+			tag,
+			getClipList,
+			signOutAndRedirect,
+			history,
+			clipError
+		} = this.props
+		const isEmpty = clipList.tag != tag || clipList.clips.length === 0
 		return (
 			<div className="admin-page">
-				<ToolBar signOutAndRedirect={this.props.signOutAndRedirect} history={this.props.history} />
+				<ToolBar signOutAndRedirect={signOutAndRedirect} history={history} />
 				<div className="choose-by-tag">
 					<p>Выбрать видео по тегу:</p>
 					<select name="tag" onChange={e => this.switchTag(e)} value={tag}>
@@ -77,7 +85,7 @@ class AdminPage extends React.Component {
 					</select>
 					<Button
 						bsStyle="success"
-						onClick={() => this.props.getClipList(tag)}
+						onClick={() => getClipList(tag)}
 						className="refresh-by-tag"
 						type="button"
 						value="Обновить"
@@ -86,9 +94,7 @@ class AdminPage extends React.Component {
 					</Button>
 				</div>
 				{isEmpty
-					? isFetching
-							? <Loading />
-							: this.props.clipError ? <Notification error={this.props.clipError} /> : <div />
+					? isFetching ? <Loading /> : clipError ? <Notification error={clipError} /> : <div />
 					: <ClipList
 							clips={clipList.clips}
 							activePage={activePage}

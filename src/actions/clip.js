@@ -57,9 +57,10 @@ export function getClipList(tag) {
 			.equalTo(tag)
 			.once('value')
 			.then(snapshot => {
-			// 	if (tag=='weddings') {
-			// 	throw new Error('Boom')
-			// }
+				//mock error
+				// if (tag == 'weddings') {
+				// 	throw new Error('Boom')
+				// }
 				let clips = []
 				snapshot.forEach(function(clip) {
 					clips.push({url: clip.val().url, id: clip.val().id})

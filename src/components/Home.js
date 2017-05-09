@@ -11,10 +11,10 @@ class Home extends React.Component {
 	}
 
 	render() {
-		const {presentationURL, isFetching} = this.props
+		const {presentationURL, isFetching, clipError} = this.props
 		const isEmpty = presentationURL.length === 0
-		if (this.props.clipError && isEmpty) {
-			return <Notification error={this.props.clipError} />
+		if (clipError && isEmpty) {
+			return <Notification error={clipError} />
 		}
 		return (
 			<div>
@@ -23,7 +23,7 @@ class Home extends React.Component {
 					: <div className="home">
 							<iframe
 								className="home-clip"
-								src={this.props.presentationURL}
+								src={presentationURL}
 								frameBorder="0"
 								allowFullScreen
 							/>

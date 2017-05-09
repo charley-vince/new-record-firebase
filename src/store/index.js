@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import {applyMiddleware} from 'redux'
 import {createLogger} from 'redux-logger'
 import reducers from '../reducers'
-import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+import { composeWithDevTools } from 'redux-devtools-extension';
 // import {checkConnection} from '../actions/clip'
 
 function createStoreForPage() {
