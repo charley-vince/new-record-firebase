@@ -50,6 +50,8 @@ module.exports = {
 		// 	threshold: 10240,
 		// 	minRatio: 0.8
 		// }),
+		// new webpack.IgnorePlugin(/redux-devtools-extension/),
+		// new webpack.IgnorePlugin(/redux-logger/),
 		new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
 		new webpack.optimize.AggressiveMergingPlugin()
 	]

@@ -1,28 +1,37 @@
 import {createStore} from 'redux'
 import thunk from 'redux-thunk'
 import {applyMiddleware} from 'redux'
-import {createLogger} from 'redux-logger'
 import reducers from '../reducers'
-import { composeWithDevTools } from 'redux-devtools-extension';
+import {composeWithDevTools} from 'redux-devtools-extension'
+import {createLogger} from 'redux-logger'
 // import {checkConnection} from '../actions/clip'
 
 function createStoreForPage() {
-    const logger = createLogger();
-    let initialState = {};
-    const composeEnhancers = composeWithDevTools({});
-    const store = createStore(reducers, initialState ,composeEnhancers(applyMiddleware(thunk,logger)));
+	let initialState = {}
+  let middleware
 
-    // store.dispatch(checkConnection())
+	if (process.env.NODE_ENV !== 'production') {
+		middleware = composeWithDevTools(applyMiddleware(thunk, createLogger()))
+	} else {
+		middleware = applyMiddleware(thunk)
+	}
 
-    if (module.hot) {
-        module.hot.accept('../reducers', () => {
-            const nextRootReducer = require('../reducers');
-            store.replaceReducer(nextRootReducer)
-        })
-    }
+	const store = createStore(
+		reducers,
+		initialState,
+		middleware
+	)
 
-    return store;
+	// store.dispatch(checkConnection())
+
+	if (module.hot) {
+		module.hot.accept('../reducers', () => {
+			const nextRootReducer = require('../reducers').default
+			store.replaceReducer(nextRootReducer)
+		})
+	}
+
+	return store
 }
 
-
-export default  createStoreForPage;
+export default createStoreForPage
