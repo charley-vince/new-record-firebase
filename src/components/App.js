@@ -2,7 +2,6 @@ import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Page from '../containers/Page'
 import AdminPage from '../containers/Admin'
-// import WeddingQuestionnaire from './WeddingQuestionnaire'
 require('Styles/styles.less')
 
 class App extends React.Component {

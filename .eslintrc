@@ -9,7 +9,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
-    "quotes": [2, "single"],
+    # "quotes": [2, "single"],
     "strict": [2, "never"],
     "no-unused-vars": [2, { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "react/jsx-uses-react": 2,

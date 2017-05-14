@@ -12,6 +12,7 @@ import NotFound from '../components/NotFound'
 import Portfolio from './Portfolio'
 import Login from './Login'
 import Home from './Home'
+import WQuestions from '../components/WeddingQuestionnaire'
 
 class Page extends React.Component {
 	render() {
@@ -33,6 +34,7 @@ class Page extends React.Component {
 						<Route path="/login" component={Login} />
 						<Route path="/contacts" component={Contacts} />
 						<Route path="/portfolio" component={Portfolio} />
+						<Route path="/wquestions" component={WQuestions} />
 						<Redirect
 							to={{
 								pathname: `${location.pathname}`,

@@ -1,4 +1,13 @@
+.whoAreYou input {
+  margin-right: 10px;
+}
+#empty-radio-err {
+  visibility: hidden;
+}
+
 .wrap {
+  max-width: 980px;
+  margin: 10px auto 0;
   min-height: 69%;
   height: auto;
   animation: softRender .5s 1 ease;
@@ -16,45 +25,27 @@
   height: 200px;
 }
 
-.wedding-day {
-  margin-top: 20px;
+.details textarea,
+.about-wedding textarea {
+  margin-bottom: 15px;
 }
-
-.step-form {
-  min-height: 400px;
-  height: auto;
-  display: block;
-}
-
-.step-form-aboutWedding {
-  height: 1000px;
-  display: block;
-}
-
-.wrap {
-  max-width: 980px;
-  margin: 10px auto 0;
-}
-
-#steps {
-  margin: 80px 0 0 0
-}
-
-.commands {
-  overflow: hidden;
-  margin-top: 30px;
-}
-
 .prev {
   float: left;
   border-radius: 0;
+  margin-bottom: 10px;
+  margin-left:10px;
+  margin-top:10px;
 }
 
 .next, .submit {
-  float: right
+  float: right;
+  margin-bottom: 10px;
+  margin-right:10px;
+  margin-top:10px;
 }
 
-.next {
+.next,
+.prev {
   color: #c10500;
   background-color: #ffffff;
   border-color: #c10500;
@@ -67,7 +58,6 @@
     border-color: #900500!important;
     background-color: #900500!important
   }
-
   &:active{
     border-color: #900500!important;
     background-color: #900500!important
@@ -75,6 +65,8 @@
 }
 
 .error {
+  margin-top: 0 !important;
+  background-color: white !important;
   color: #b33;
 }
 

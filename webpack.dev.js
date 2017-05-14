@@ -6,7 +6,7 @@ console.log(__dirname)
 module.exports = {
 	devtool: 'eval',
 	devServer: {
-		headers: {'Access-Control-Allow-Origin': '*'}
+		headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*'}
 	},
 	entry: ['react-hot-loader/patch', 'webpack-hot-middleware/client', './src/index'],
 	output: {

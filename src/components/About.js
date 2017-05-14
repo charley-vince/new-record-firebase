@@ -5,8 +5,7 @@ import logos from '../utils/partners-logo'
 require('Styles/about.less')
 
 const About = ({strings}) => {
-	let partnersLogo
-	partnersLogo = logos.map((item, index) => {
+	let partnersLogo = logos.map((item, index) => {
 		return (
 			<img
 				className=" col-lg-3 col-md-3 col-sm-3 col-xs-3 partner-logo img-responsive"
