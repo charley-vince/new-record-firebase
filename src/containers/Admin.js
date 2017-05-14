@@ -6,18 +6,21 @@ import AdminPage from '../components/Admin'
 import {parseQuery} from '../utils/helpers'
 
 function mapStateToProps(state, ownProps) {
-	return {
-		authenticated: state.auth.authenticated,
-		clipList: state.clipPage.clipList,
-		activePage: parseInt(parseQuery(ownProps.location.search,'page')) || 1,
-		tag: parseQuery(ownProps.location.search,'tag') || 'weddings',
-		clipError: state.clipError.error,
-		isFetching: state.clipPage.isFetching
-	}
+  return {
+    authenticated: state.auth.authenticated,
+    clipList: state.clipPage.clipList,
+    activePage: parseInt(parseQuery(ownProps.location.search, 'page')) || 1,
+    tag: parseQuery(ownProps.location.search, 'tag') || 'weddings',
+    clipError: state.clipError.error,
+    isFetching: state.clipPage.isFetching
+  }
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({getClipList, removeClip, setPresentationClip, signOutAndRedirect}, dispatch)
+  return bindActionCreators(
+    {getClipList, removeClip, setPresentationClip, signOutAndRedirect},
+    dispatch
+  )
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminPage)

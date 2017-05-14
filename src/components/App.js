@@ -5,15 +5,15 @@ import AdminPage from '../containers/Admin'
 require('Styles/styles.less')
 
 class App extends React.Component {
-	render() {
-		return (
-				<Router>
-						<Switch>
-							<Route path="/admin" component={AdminPage} />
-							<Route path="/" component={Page} />
-						</Switch>
-				</Router>
-		)
-	}
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/admin" component={AdminPage} />
+          <Route path="/" component={Page} />
+        </Switch>
+      </Router>
+    )
+  }
 }
 export default App

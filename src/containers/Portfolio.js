@@ -7,16 +7,16 @@ import flow from 'lodash/flow'
 import {parseQuery} from '../utils/helpers'
 
 function mapStateToProps(state, ownProps) {
-	return {
-		clipList: state.clipPage.clipList,
-		isFetching: state.clipPage.isFetching,
-		clipError: state.clipError.error,
-		activePage: parseInt(parseQuery(ownProps.location.search,'page')),
-		tag: parseQuery(ownProps.location.search,'tag')
-	}
+  return {
+    clipList: state.clipPage.clipList,
+    isFetching: state.clipPage.isFetching,
+    clipError: state.clipError.error,
+    activePage: parseInt(parseQuery(ownProps.location.search, 'page')),
+    tag: parseQuery(ownProps.location.search, 'tag')
+  }
 }
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({getClipList}, dispatch)
+  return bindActionCreators({getClipList}, dispatch)
 }
 
 const decorators = flow([connect(mapStateToProps, mapDispatchToProps), translate('Portfolio')])

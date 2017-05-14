@@ -15,61 +15,61 @@ import Home from './Home'
 import WQuestions from '../components/WeddingQuestionnaire'
 
 class Page extends React.Component {
-	render() {
-		const {changeLanguage, location} = this.props
-		const notFound = location.state ? location.state.notFound : false
-		if (notFound) {
-			return <Route component={NotFound} />
-		} else {
-			return (
-				<div>
-					<NavBar
-						onChangeLanguage={changeLanguage}
-						pathname={location.pathname}
-						search={location.search}
-					/>
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route path="/about" component={About} />
-						<Route path="/login" component={Login} />
-						<Route path="/contacts" component={Contacts} />
-						<Route path="/portfolio" component={Portfolio} />
-						<Route path="/wquestions" component={WQuestions} />
-						<Redirect
-							to={{
-								pathname: `${location.pathname}`,
-								// hook for showing notFound
-								state: {notFound: true}
-							}}
-						/>
-					</Switch>
-					<Footer />
-				</div>
-			)
-		}
-	}
+  render() {
+    const {changeLanguage, location} = this.props
+    const notFound = location.state ? location.state.notFound : false
+    if (notFound) {
+      return <Route component={NotFound} />
+    } else {
+      return (
+        <div>
+          <NavBar
+            onChangeLanguage={changeLanguage}
+            pathname={location.pathname}
+            search={location.search}
+          />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/login" component={Login} />
+            <Route path="/contacts" component={Contacts} />
+            <Route path="/portfolio" component={Portfolio} />
+            <Route path="/wquestions" component={WQuestions} />
+            <Redirect
+              to={{
+                pathname: `${location.pathname}`,
+                // hook for showing notFound
+                state: {notFound: true}
+              }}
+            />
+          </Switch>
+          <Footer />
+        </div>
+      )
+    }
+  }
 
-	getChildContext() {
-		return {
-			currentLanguage: this.props.currentLanguage
-		}
-	}
+  getChildContext() {
+    return {
+      currentLanguage: this.props.currentLanguage
+    }
+  }
 }
 
 Page.childContextTypes = {
-	currentLanguage: PropTypes.string.isRequired
+  currentLanguage: PropTypes.string.isRequired
 }
 
 function mapDispatchToProps(dispatch) {
-	return {
-		changeLanguage: bindActionCreators(changeLanguage, dispatch)
-	}
+  return {
+    changeLanguage: bindActionCreators(changeLanguage, dispatch)
+  }
 }
 
 function mapStateToProps(state) {
-	return {
-		currentLanguage: state.common.currentLang
-	}
+  return {
+    currentLanguage: state.common.currentLang
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Page)

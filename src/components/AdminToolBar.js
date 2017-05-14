@@ -1,23 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Navbar, Nav, NavItem, Modal, Button } from 'react-bootstrap';
-import AddClipForm from '../containers/AddClipForm';
+import React from 'react'
+import PropTypes from 'prop-types'
+import {Navbar, Nav, NavItem, Modal, Button} from 'react-bootstrap'
+import AddClipForm from '../containers/AddClipForm'
 
 class ToolBar extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showModal: false
-    };
+    }
   }
 
   close = () => {
-    this.setState({ showModal: false });
-  };
+    this.setState({showModal: false})
+  }
 
   open = () => {
-    this.setState({ showModal: true });
-  };
+    this.setState({showModal: true})
+  }
   wrapSignOut = () => {
     this.props.signOutAndRedirect(this.props.history.push)
   }
@@ -45,13 +45,13 @@ class ToolBar extends React.Component {
         </Modal>
 
       </div>
-    );
+    )
   }
 }
 
 ToolBar.propTypes = {
   signOutAndRedirect: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
-};
+}
 
-export default ToolBar;
+export default ToolBar
