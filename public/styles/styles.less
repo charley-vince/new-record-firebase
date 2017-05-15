@@ -1,81 +1,89 @@
 @font-face {
-  font-family: Drugs;
-  src: url('../fonts/Drugs.otf');
+    font-family: Drugs;
+    src: url('../fonts/Drugs.otf');
 }
-
 @keyframes softRender {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.75;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 html {
-  height: 100%;
+    height: 100%;
 }
+
 body {
-  height: 100%;
-  font-size:150%;
+    height: 100%;
+    font-size: 150%;
 }
+
 .container {
-  font-family: Drugs ;
+    font-family: Drugs;
 }
+
 #root {
-  height:100%;
-  margin: 0 auto;
+    height: 100%;
+    margin: 0 auto;
 }
-[data-reactroot]
-        {height: 100% !important; }
+
+[data-reactroot] {
+    height: 100% !important;
+}
 
 .default-height-container {
-  animation: softRender .5s 1 ease;
-  min-height: 70%;
+    animation: softRender 0.5s 1 ease;
+    min-height: 70%;
 }
 
 .error {
-  margin-top: -10px;
-  margin-bottom: 20px;
-  display: block;
-  text-align: center;
-  background-color: rgba(211, 26, 26, 0.25);
-  color: #b22222;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    background-color: rgba(211, 26, 26, 0.25);
+    color: #b22222;
 }
 
 .success {
-  margin-top: -10px;
-  margin-bottom: 20px;
-  display: block;
-  text-align: center;
-  background-color: rgba(56, 211, 139, 0.25);
-  color: #4eb256;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    background-color: rgba(56, 211, 139, 0.25);
+    color: #4eb256;
 }
-
 //home
+
 .home {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .home-clip {
-  animation: softRender .5s 1 ease;
-  display: block;
-  margin: auto;
-  width: 100%;
-  height: 100vh;
+    animation: softRender 0.5s 1 ease;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
 }
 @media only screen and (max-width: 767px) {
-  .default-height-container {
-    height: auto;
-  }
+    .default-height-container {
+        height: auto;
+    }
 }
