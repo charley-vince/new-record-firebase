@@ -1,40 +1,28 @@
-@font-face {
-  font-family: CGB;
-  src: url('../fonts/CenturyGothicRegular.ttf');
-}
-
-@font-face {
-  font-family: Drugs;
-  src: url('../fonts/Drugs.otf');
-}
-
 hr{
  color: #3b3b43;
 }
-.container{
+.about-wrapper {
   animation: softRender .5s 1 ease;
+  font-size: 1.2em;
 }
-.about-title,.our-clients-title  {
-  span {
-    font-family: HelveticaNeue, serif !important;
-  }
+.about-header {
+  margin-top: 60px;
+  color: #4b4b4b;
+}
+
+.our-clients-title  {
   text-align: center;
   margin-top: 50px;
   font-weight: bold;
   color: #4b4b4b;
-  font-size: 30px;
 }
 .our-clients-title{
   margin-top: 0!important;
 }
 
 .about-text {
-  span{
-    font-family: CGB, serif !important;
-  }
   color: #000000;
   text-align: center;
-  font-size: 17px;
 }
 
 
@@ -53,10 +41,6 @@ hr{
     text-align: center;
   }
   .item-title {
-    span {
-      font-family: HelveticaNeue, serif !important;
-    }
-    font-size: 16px;
     color: rgb(72, 72, 72);
     text-transform: uppercase;
     text-align: center;
@@ -66,9 +50,6 @@ hr{
     margin-top: 20px;
     text-align: left;
     color: rgb(27, 27, 27);
-  }
-  & li {
-    font-family: CGB, serif !important;
   }
 }
 
@@ -98,8 +79,19 @@ hr{
   .about-title,.our-clients-title{
     font-size: 28px;
   }
-
   .clients-logo {
     width: 500px;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .item {
+    height: 500px;
+  }
+  .about-header {
+    font-size:1.6em;
+  }
+  .about-wrapper{
+    font-size:1.8em;
+    width: 1300px;
   }
 }

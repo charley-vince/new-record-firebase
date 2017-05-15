@@ -30,13 +30,18 @@ class Portfolio extends React.Component {
     //Consider empty if clips for current tag weren't fetched, or fetched empty list
     const isEmpty = clipList.tag != tag || clipList.clips.length === 0
     if (clipError && isEmpty) {
-      return <Notification error={clipError} />
+      return
+      ;<Notification error={clipError} />
     }
     if (isFetching) {
-      return <Loading />
+      return (
+        <div className="default-height-container">
+          <Loading />
+        </div>
+      )
     }
     return (
-      <div>
+      <div className="default-height-container">
         {!isEmpty
           ? <ClipList
               perPage={3}
@@ -44,7 +49,7 @@ class Portfolio extends React.Component {
               activePage={activePage}
               changePage={this.changePage}
             />
-          : <div className="default-height-container" />}
+          : <div />}
       </div>
     )
   }

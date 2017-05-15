@@ -78,9 +78,9 @@ class WeddingQuestionnaire extends React.Component {
         }
       })
 
-      $('.next').html('Далее')
-      $('.prev').html('Назад')
-      $('#submitButton').html('Подтвердить')
+      // $('.next').html('Далее')
+      // $('.prev').html('Назад')
+      // $('#submitButton').html('Подтвердить')
     })
   }
 

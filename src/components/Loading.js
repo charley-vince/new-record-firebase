@@ -5,7 +5,7 @@ require('Styles/loading.less')
 
 const Loading = () => {
   return (
-    <div className="text-center loading-wrapper default-height-container">
+    <div className="text-center loading-wrapper">
       <Fade>
         <ChasingDots size={50} color="#AD1318" className="loading" />
       </Fade>

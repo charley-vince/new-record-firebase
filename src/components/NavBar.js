@@ -107,7 +107,7 @@ class NavBar extends React.Component {
             <span className="icon-bar" />
           </button>
           <NavLink className="navbar-brand" to="/">
-            <img src={NavBarLogo} width="200" alt="New Record" />
+            <img src={NavBarLogo} width="200" alt="New Record" id="navbar-logo" />
           </NavLink>
         </div>
         <div className="navbar-collapse collapse">

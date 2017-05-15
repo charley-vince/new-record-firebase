@@ -14,15 +14,17 @@ class Home extends React.Component {
     const {presentationURL, isFetching, clipError} = this.props
     const isEmpty = presentationURL.length === 0
     if (clipError && isEmpty) {
-      return <Notification error={clipError} />
+      return (
+        <div className="default-height-container">
+          <Notification error={clipError} />
+        </div>
+      )
     }
     return (
-      <div>
+      <div className="default-height-container">
         {isEmpty
           ? isFetching ? <Loading /> : <div className="default-height-container" />
-          : <div className="home">
-              <iframe className="home-clip" src={presentationURL} frameBorder="0" allowFullScreen />
-            </div>}
+          : <iframe className="home-clip" src={presentationURL} frameBorder="0" allowFullScreen />}
       </div>
     )
   }

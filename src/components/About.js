@@ -19,15 +19,10 @@ const About = ({strings}) => {
   let productionItems = strings.productionItems
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="about-title col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4
-          col-sm-offset-4 col-sm-4 col-xs-offset-4 col-xs-4">
-          <span>
-            {strings.index}
-          </span>
-        </div>
-      </div>
+    <div className="container default-height-container about-wrapper">
+      <h2 className="about-header text-center">
+        {strings.index}
+      </h2>
       <div className="row">
         <div className=" col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 about-decoration-blockborder" />
       </div>

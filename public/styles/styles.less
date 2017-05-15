@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Drugs;
+  src: url('../fonts/Drugs.otf');
+}
 
 @keyframes softRender {
   0% {
@@ -17,14 +21,26 @@
   }
 }
 
-html, body {
+html {
   height: 100%;
 }
+body {
+  height: 100%;
+  font-size:150%;
+}
+.container {
+  font-family: Drugs ;
+}
+#root {
+  height:100%;
+  margin: 0 auto;
+}
+[data-reactroot]
+        {height: 100% !important; }
 
 .default-height-container {
   animation: softRender .5s 1 ease;
-  height: 70%;
-  min-height: 500px;
+  min-height: 70%;
 }
 
 .error {
@@ -47,7 +63,7 @@ html, body {
 
 //home
 .home {
-  height: 500px;
+  height: 100%;
   width: 100%;
 }
 
@@ -56,5 +72,10 @@ html, body {
   display: block;
   margin: auto;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+}
+@media only screen and (max-width: 767px) {
+  .default-height-container {
+    height: auto;
+  }
 }

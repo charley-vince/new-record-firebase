@@ -16,7 +16,7 @@
   animation: softRender .5s 1 ease;
   box-shadow: 2px 2px 8px 3px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 400px;
-  width: 80%;
+  width: 60%;
 }
 
 //pagintaion
@@ -61,4 +61,19 @@
   .clip {
     height: 200px;
   }
+}
+
+@media only screen and (min-width: 1600px) {
+  .clip-wrapper {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .clip {
+    width: 40%;
+  }
+  .custom-pagination {
+  li {
+     font-size: 1.7em !important;
+   }
+ }
 }

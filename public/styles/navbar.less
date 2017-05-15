@@ -9,6 +9,7 @@ ul {
 }
 
 .navbar {
+  height: 175px;
   background-color: white;
   box-shadow: 0 0 5px rgba(178, 178, 178, 0.9);
   margin-bottom: 0 !important;
@@ -132,18 +133,6 @@ padding-bottom: 0;
    border-bottom: 1px solid #9D1D1F !important;
 }
 
-//admin
-.admin-page  .nav li {
-  float: left;
-}
-.admin-page  .nav > li,
-.admin-page  .nav li a {
-  color: black !important;
-  text-decoration: none;
-  border:none !important;
-  outline:none !important;
-}
-
 //media queries
 @media (min-width: 768px) {
    .navbar-header-center {
@@ -153,6 +142,9 @@ padding-bottom: 0;
 }
 
 @media only screen and (max-width: 767px) {
+  .navbar {
+    height: auto;
+  }
   .navbar-header {
     margin-left: 30px;
   }
@@ -208,5 +200,32 @@ padding-bottom: 0;
     border-right: 10px solid transparent;
     border-top: 10px solid #9D1D1F;
     display: inline-block;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .navbar {
+    height: 290px;
+  }
+  .navbar-header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  #navbar-logo {
+    width: 300px !important;
+  }
+  .navbar .nav > li > a,
+  .dropdown-nav li> a {
+  font-size: 2.4em;
+  }
+  .dropdown-nav li> a {
+    font-size: 1.8em;
+  }
+
+  #lang-menu {
+    left: 75%;
+    top: 60px;
+  }
+  #current-lang {
+    font-size: 2.4em;
   }
 }
