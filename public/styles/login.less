@@ -1,49 +1,77 @@
+.login-wrapper {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
 .login-window {
+    z-index: 1;
+    background: #FFFFFF !important;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    border: 1px solid #000000;
-    width: 320px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
-.input-login-form,
-.login-window > .container-fluid {
-    padding: 0;
-    height: 100%;
-    padding-bottom: 5%;
-}
+    .login-layout {
+        input {
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 30px 0 0;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
 
-.input-login-form {
-    height: 95%;
-    padding: 10%;
-}
+        button {
+            margin-top: 30px;
+            text-transform: uppercase;
+            outline: 0;
+            color: #AE0C13;
+            background-color: white;
+            border: 1px solid #AE0C13;
+            width: 100%;
+            padding: 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
 
-.container-fluid > .panel-heading {
-    height: 50px;
+        .login-error {
+            position: absolute;
+            display: block;
+            color: #AE0C13;
+        }
+    }
 }
-
-.container-fluid > .panel-heading > .panel-title {
-    line-height: 30px;
+@media only screen and (max-width: 414px) {
+    .login-window {
+        max-width: 80%;
+    }
 }
+@media only screen and (min-width: 1600px) {
+    .login-wrapper {
+        padding-top: 120px;
+    }
 
-.input-login-field {
-    margin-bottom: 15px;
-}
+    .login-window {
+        max-width: 600px;
 
-.panel-heading {
-    background-color: #f5f5f5;
-    border-bottom: 1px solid silver;
-}
+        .login-layout {
+            input {
+                margin-top: 50px;
+                font-size: 24px;
+            }
 
-.login-btn {
-    transition: 0.3s;
-    border: none;
-    border-radius: 0;
-    margin-top: 40px;
-    background-color: rgb(104, 145, 162);
-}
+            button {
+                margin-top: 50px;
+                font-size: 24px;
+            }
 
-.login-btn:hover {
-    background-color: rgb(12, 97, 33);
+            .login-error {
+                font-size: 24px;
+            }
+        }
+    }
 }

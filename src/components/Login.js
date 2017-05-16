@@ -11,12 +11,11 @@ const email = value =>
     : undefined
 
 const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
+  <div className="input-login-form">
+    <input {...input} placeholder={label} type={type} />
+    {touched &&
+      ((error && <span className="login-error">{error}</span>) ||
+        (warning && <span className="login-error">{warning}</span>))}
   </div>
 )
 
@@ -38,35 +37,33 @@ class Login extends React.Component {
   }
 
   render() {
-    let strings = this.props.strings
+    // let strings = this.props.strings
 
     return (
-      <div className="default-height-container" style={{paddingTop: 100}}>
+      <div className="default-height-container login-wrapper">
         <div className="login-window">
-          <div className="panel-heading">
-            <h3 className="panel-title">{strings.authorization}</h3>
-          </div>
 
           {this.renderAuthenticationError(this.props.authenticationError)}
 
           <form onSubmit={this.props.handleSubmit(this.wrapperSignInUser)}>
-            <Field
-              name="email"
-              component={renderField}
-              validate={[required, email]}
-              type="text"
-              label={strings.login}
-              className="input-login-form"
-            />
+            <div className="login-layout">
+              <Field
+                name="email"
+                component={renderField}
+                validate={[required, email]}
+                type="text"
+                label="Email"
+              />
 
-            <Field
-              name="password"
-              component={renderField}
-              validate={[required]}
-              type="text"
-              label={strings.password}
-            />
-            <button type="submit">Submit</button>
+              <Field
+                name="password"
+                component={renderField}
+                validate={[required]}
+                type="text"
+                label="Password"
+              />
+              <button type="submit">Submit</button>
+            </div>
           </form>
         </div>
       </div>

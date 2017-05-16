@@ -1,6 +1,9 @@
 .footer {
-    height: 100px;
+    min-height: 100px;
+    height: 15vh;
     background-color: #a5a3a3;
+    border-top: 1px solid transparent;
+    box-shadow: 0 -5px 10px -5px rgba(178, 178, 178, 0.9);
 
     .info-block-wrapper {
         height: 100%;
@@ -61,9 +64,32 @@
     .footer-logo {
         float: right;
         height: 100%;
-        background-repeat: no-repeat;
-        background-position: right;
-        background-size: contain;
+        // background-repeat: no-repeat;
+        // background-position: right;
+        // background-size: contain;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .footer {
+        font-size: 1em;
+
+        .nr-label {
+            font-size: 0.8em;
+        }
+
+        .i18n-line-wrapper {
+            height: 5%;
+            margin-top: 8%;
+        }
+
+        .social-networks {
+            height: 30%;
+            padding-top: 0;
+
+            .social-network:not(:first-child) {
+                margin-left: 20px;
+            }
+        }
     }
 }
 @media only screen and (min-width: 1600px) {
