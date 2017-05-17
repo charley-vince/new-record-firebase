@@ -1,16 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ToolBar from './AdminToolBar'
-import {Button} from 'react-bootstrap'
+import {Modal, Button} from 'react-bootstrap'
 import ClipList from './ClipList'
 import Notification from './Notification'
 import Loading from './Loading'
+import EditClipForm from '../containers/EditClipForm'
 require('Styles/admin.less')
 
 class AdminPage extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      showModal: false
+    }
     this.changePage = this.changePage.bind(this)
+    this.renderEditClipForm = this.renderEditClipForm.bind(this)
   }
   componentWillMount() {
     if (!this.props.authenticated) {
@@ -21,11 +26,16 @@ class AdminPage extends React.Component {
     if (this.props.tag != nextProps.tag) {
       this.props.getClipList(nextProps.tag)
     }
+    //close modal if clip was successfully deleted
+    if (this.props.clipList.clips.length > nextProps.clipList.clips.length) {
+      this.setState({showModal: false})
+    }
   }
   componentDidMount() {
     if (this.props.clipList.tag != this.props.tag) {
       this.props.getClipList(this.props.tag)
     }
+    this.props.getPresentationClip()
   }
   changePage(newPage) {
     this.props.history.push({
@@ -43,19 +53,20 @@ class AdminPage extends React.Component {
       })
     }
   }
+  close = () => {
+    this.setState({showModal: false})
+    this.props.resetErrorAndSuccess()
+  }
 
+  renderEditClipForm = clip => {
+    this.props.setEditedClip(clip)
+    this.setState({showModal: true})
+  }
   clipButtons = clip => {
     return (
       <div className="under-clip-buttons">
-        <Button bsSize="small" onClick={() => this.props.removeClip(clip.id)} bsStyle="danger">
-          delete
-        </Button>
-        <Button
-          bsSize="small"
-          onClick={() => this.props.setPresentationClip(clip.url)}
-          bsStyle="warning"
-        >
-          set as presentation
+        <Button bsSize="lg" onClick={() => this.renderEditClipForm(clip)} bsStyle="danger">
+          Edit
         </Button>
       </div>
     )
@@ -70,51 +81,73 @@ class AdminPage extends React.Component {
       getClipList,
       signOutAndRedirect,
       history,
-      clipError
+      clipError,
+      resetErrorAndSuccess
     } = this.props
     const isEmpty = clipList.tag != tag || clipList.clips.length === 0
     return (
-      <div className="admin-page">
-        <ToolBar signOutAndRedirect={signOutAndRedirect} history={history} />
-        <div className="choose-by-tag">
-          <p>Выбрать видео по тегу:</p>
-          <select name="tag" onChange={e => this.switchTag(e)} value={tag}>
-            <option value="weddings">weddings</option>
-            <option value="voice">voice</option>
-            <option value="other">other</option>
-          </select>
-          <Button
-            bsStyle="success"
-            onClick={() => getClipList(tag)}
-            className="refresh-by-tag"
-            type="button"
-            value="Обновить"
-          >
-            Обновить
-          </Button>
+      <div className="admin-wrapper">
+        <ToolBar
+          signOutAndRedirect={signOutAndRedirect}
+          history={history}
+          resetErrorAndSuccess={resetErrorAndSuccess}
+        />
+        <div className="admin-body">
+          <div className="col-md-offset-2 col-md-8 admin-panel">
+            <div>
+              <span>Chose video by tag</span>
+              <select name="tag" onChange={e => this.switchTag(e)} value={tag}>
+                <option value="weddings">weddings</option>
+                <option value="voice">voice</option>
+                <option value="other">other</option>
+              </select>
+            </div>
+            <Button
+              onClick={() => getClipList(tag)}
+              className="refresh-by-tag"
+              type="button"
+              value="Refresh"
+            >
+              Refresh
+            </Button>
+          </div>
+          {isEmpty
+            ? isFetching ? <Loading /> : clipError ? <Notification error={clipError} /> : <div />
+            : <ClipList
+                clips={clipList.clips}
+                activePage={activePage}
+                changePage={this.changePage}
+                perPage={3}
+                clipButtons={this.clipButtons}
+              />}
+          <Modal show={this.state.showModal} onHide={this.close}>
+            <Modal.Header closeButton>
+              <Modal.Title>Edit video</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <EditClipForm />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button bsSize="lg" bsStyle="default" className="default-btn" onClick={this.close}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
-        {isEmpty
-          ? isFetching ? <Loading /> : clipError ? <Notification error={clipError} /> : <div />
-          : <ClipList
-              clips={clipList.clips}
-              activePage={activePage}
-              changePage={this.changePage}
-              perPage={3}
-              clipButtons={this.clipButtons}
-            />}
       </div>
     )
   }
 }
 
 AdminPage.PropTypes = {
-  clips: PropTypes.array.isRequired,
+  clipList: PropTypes.object.isRequired,
   page: PropTypes.number.isRequired,
   tag: PropTypes.string.isRequired,
   getClipList: PropTypes.func.isRequired,
   removeClip: PropTypes.func.isRequired,
-  setPresentationClip: PropTypes.func.isRequired,
   signOutAndRedirect: PropTypes.func.isRequired,
+  setEditedClip: PropTypes.func.isRequired,
+  resetErrorAndSuccess: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired
 }
 

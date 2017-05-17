@@ -18,18 +18,18 @@ export function addClip(clip) {
       type: actions.ADD_CLIP_REQUEST
     })
 
-    var urlHash = hex_md5(clip.url)
-    var newClipRef = firebase.database().ref().child('clips').push()
-    newClipRef
+    let urlHash = hex_md5(clip.url)
+    firebase
+      .database()
+      .ref('clips')
+      .child(urlHash)
       .set({
-        id: newClipRef.key,
         title: clip.title,
         url: clip.url,
         urlMD5: urlHash,
         tag: clip.tag
       })
-      .then(response => {
-        firebase.database().ref().child('urlHashes').child(urlHash).set(newClipRef.key)
+      .then(() => {
         dispatch({
           type: actions.ADD_CLIP_SUCCESS
         })
@@ -57,13 +57,14 @@ export function getClipList(tag) {
       .equalTo(tag)
       .once('value')
       .then(snapshot => {
-        //mock error
-        // if (tag == 'weddings') {
-        // 	throw new Error('Boom')
-        // }
         let clips = []
         snapshot.forEach(function(clip) {
-          clips.push({url: clip.val().url, id: clip.val().id})
+          clips.push({
+            url: clip.val().url,
+            id: clip.val().urlMD5,
+            tag: clip.val().tag,
+            title: clip.val().title
+          })
         })
         dispatch({
           type: actions.GET_CLIP_LIST_SUCCESS,
@@ -90,7 +91,7 @@ export function getPresentationClip() {
 
     firebase
       .database()
-      .ref('presentation')
+      .ref('clips/presentation')
       .once('value')
       .then(response => {
         dispatch({
@@ -101,32 +102,6 @@ export function getPresentationClip() {
       .catch(error => {
         dispatch({
           type: actions.GET_PRESENTATION_CLIP_FAILURE,
-          payload: error.message
-        })
-      })
-  }
-}
-
-export function setPresentationClip(url) {
-  return dispatch => {
-    dispatch({
-      type: actions.CHANGE_PRESENTATION_CLIP_REQUEST
-    })
-
-    firebase
-      .database()
-      .ref()
-      .update({
-        presentation: url
-      })
-      .then(response => {
-        dispatch({
-          type: actions.CHANGE_PRESENTATION_CLIP_SUCCESS
-        })
-      })
-      .catch(error => {
-        dispatch({
-          type: actions.CHANGE_PRESENTATION_CLIP_FAILURE,
           payload: error.message
         })
       })
@@ -158,7 +133,54 @@ export function removeClip(id) {
       })
   }
 }
+export function editClip(clip) {
+  return dispatch => {
+    dispatch({
+      type: actions.EDIT_CLIP_REQUEST
+    })
+    let updates = {}
+    updates['/clips/' + clip.id + '/tag'] = clip.tag
+    updates['/clips/' + clip.id + '/title'] = clip.title
+    if (clip.setAsPresentation) {
+      updates['/clips/presentation'] = clip.url
+    }
+    firebase
+      .database()
+      .ref()
+      .update(updates)
+      .then(() => {
+        if (clip.setAsPresentation) {
+          dispatch({
+            type: actions.CHANGED_PRESENTATION_CLIP,
+            payload: clip.url
+          })
+        }
+        dispatch({
+          type: actions.EDIT_CLIP_SUCCESS,
+          payload: clip
+        })
+      })
+      .catch(error => {
+        dispatch({
+          type: actions.EDIT_CLIP_FAILURE,
+          payload: error.message
+        })
+      })
+  }
+}
 
+export function setEditedClip(clip) {
+  return {
+    type: actions.SET_EDITED_CLIP,
+    payload: clip
+  }
+}
+
+export function resetErrorAndSuccess() {
+  return {
+    type: actions.RESET_ERROR_AND_SUCCESSONEDIT
+  }
+}
 // export function checkConnection() {
 // 	return dispatch => {
 // 		var connectedRef = firebase.database().ref('.info/connected')

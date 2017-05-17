@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Field, reduxForm} from 'redux-form'
+import {Button} from 'react-bootstrap'
 require('Styles/login.less')
 
 //field validation
@@ -62,7 +63,7 @@ class Login extends React.Component {
                 type="text"
                 label="Password"
               />
-              <button type="submit">Submit</button>
+              <Button type="submit" bsStyle="danger">Submit</Button>
             </div>
           </form>
         </div>

@@ -1,39 +1,257 @@
-.admin-navbar > .navbar {
-    border-radius: 0;
+.admin-body {
+    margin: auto;
+    width: 90%;
+
+    .admin-panel {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            display: block;
+        }
+    }
 }
 
-.admin-clip-wrapper {
-    margin: 20px 20px 0;
-    display: inline-block;
-    width: 450px;
-    height: 400px;
+.add-clip {
+    input {
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 30px 0 0;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    button {
+        border-radius: 0;
+        color: #AE0C13;
+        background-color: white;
+        border: 1px solid #AE0C13;
+        margin-top: 30px;
+        width: 100%;
+        padding: 15px;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .btn:hover {
+        background-color: #AE0C13;
+        color: white;
+    }
+
+    .login-error {
+        position: absolute;
+        display: block;
+        color: #AE0C13;
+    }
+}
+
+.admin-navbar > .navbar {
+    border-radius: 0;
+    background-color: white;
+    border-left: none;
+    border-right: none;
 }
 
 .admin-clips-wrapper {
     text-align: center;
     display: inline;
+
+    .clip-wrapper {
+        margin-bottom: 0;
+
+        .clip {
+            width: auto;
+        }
+    }
 }
 
 .under-clip-buttons {
-    margin-left: 20px;
+    margin: 0 auto 10px;
     width: 220px;
     display: block;
-    margin-top: 5px;
-    margin-bottom: 20px;
 }
 
+.refresh-by-tag {
+    float: right;
+}
+
+.refresh-by-tag,
 .under-clip-buttons .btn {
     border-radius: 0;
+    color: #AE0C13;
+    background-color: white;
+    border: 1px solid #AE0C13;
 }
 
-.admin-page .nav li {
+.refresh-by-tag:hover,
+.under-clip-buttons .btn:hover {
+    background-color: #AE0C13;
+    color: white;
+}
+
+.admin-wrapper .nav li {
     float: left;
 }
 
-.admin-page .nav > li,
-.admin-page .nav li a {
+.admin-wrapper .nav > li,
+.admin-wrapper .nav li a {
     color: black !important;
     text-decoration: none;
     border: none !important;
     outline: none !important;
+}
+//EditClipForm
+.edit-buttons {
+    margin-top: 20px;
+    display: block;
+
+    button {
+        width: 100px;
+    }
+
+    .delete-btn {
+        float: right;
+    }
+}
+
+.default-btn {
+    width: 100px;
+}
+// .edit-clip .input-wrapper {
+//     outline: 0;
+//     background: #f2f2f2;
+//     width: 70%;
+//     border: 0;
+//     margin: 30px 0;
+//     padding: 15px;
+//     box-sizing: border-box;
+//     font-size: 14px;
+// }
+.edit-clip {
+    .url {
+        margin: 0 0 10px;
+
+        label {
+            display: block;
+        }
+
+        span {
+            height: 50px;
+            margin: 0 0 10px;
+            display: block;
+            background: #f2f2f2;
+            width: 70%;
+            overflow: scroll;
+            margin: 0;
+            padding: 15px;
+        }
+    }
+
+    input {
+        height: 50px;
+        background-color: white;
+        width: 70%;
+        margin: 0 0 10px;
+        padding: 15px;
+        border: 3px solid #f2f2f2;
+        overflow: scroll;
+    }
+
+    select {
+        height: 50px;
+        margin: 0 0 10px;
+        display: block;
+        width: 100px;
+        height: 50px;
+        margin: 0 0 10px;
+        padding: 15px;
+        outline: 0;
+        border: 3px solid #f2f2f2;
+        background-color: white;
+    }
+
+    #presentation-checkbox:checked,
+    #presentation-checkbox:not(:checked) {
+        position: absolute;
+        left: -9999px;
+    }
+
+    #presentation-checkbox:checked + label,
+    #presentation-checkbox:not(:checked) + label {
+        position: relative;
+        padding-left: 1.95em;
+        cursor: pointer;
+    }
+    /* Base for label styling */
+    #presentation-checkbox:checked,
+    #presentation-checkbox:not(:checked) {
+        position: absolute;
+        left: -9999px;
+    }
+
+    #presentation-checkbox:checked + label,
+    #presentation-checkbox:not(:checked) + label {
+        position: relative;
+        padding-left: 1.95em;
+        cursor: pointer;
+    }
+    /* checkbox aspect */
+    #presentation-checkbox:checked + label:before,
+    #presentation-checkbox:not(:checked) + label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: -12px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #ccc;
+        background: #fff;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    }
+    /* checked mark aspect */
+    #presentation-checkbox:checked + label:after,
+    #presentation-checkbox:not(:checked) + label:after {
+        content: '✔';
+        position: absolute;
+        top: -9px;
+        left: 0.3em;
+        font-size: 1.3em;
+        line-height: 0.8;
+        color: #09ad7e;
+        transition: all 0.2s;
+    }
+    /* checked mark aspect changes */
+    #presentation-checkbox:not(:checked) + label:after {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    #presentation-checkbox:checked + label:after {
+        opacity: 1;
+        transform: scale(1);
+    }
+    /* disabled checkbox */
+    #presentation-checkbox:disabled:checked + label:before,
+    #presentation-checkbox:disabled:not(:checked) + label:before {
+        box-shadow: none;
+        border-color: #bbb;
+        background-color: #ddd;
+    }
+
+    #presentation-checkbox:disabled:checked + label:after {
+        color: #999;
+    }
+
+    #presentation-checkbox:disabled + label {
+        color: #aaa;
+    }
+}
+
+.form-warn {
+    margin-left: 10px;
+    color: #C9302C;
 }

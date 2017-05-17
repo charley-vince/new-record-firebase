@@ -94,7 +94,7 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default" role="navigation">
+      <nav className="navbar navbar-default navbar-wrapper" role="navigation">
         <div className="navbar-header navbar-header-center">
           <button
             type="button"

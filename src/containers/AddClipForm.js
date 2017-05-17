@@ -5,7 +5,8 @@ import AddClipForm from '../components/AddClipForm'
 
 function mapStateToProps(state) {
   return {
-    clipError: state.clipError.error
+    clipError: state.clipError.error,
+    successOnEdit: state.clipEdit.successOnEdit
   }
 }
 

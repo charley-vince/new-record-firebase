@@ -9,7 +9,7 @@ class ClipList extends React.Component {
     if (clipButtons) {
       return function(clip) {
         return (
-          <div key={clip.id} className="admin-clip-wrapper">
+          <div key={clip.id} className="col-lg-4 col-md-4">
             <Clip clipURL={clip.url} />
             {clipButtons(clip)}
           </div>

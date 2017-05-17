@@ -8,7 +8,6 @@ const link = value => (value && !/^(f|ht)tps?:\/\//i.test(value) ? 'Invalid link
 
 const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
   <div>
-    <label>{label}</label>
     <div>
       <input {...input} placeholder={label} type={type} />
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
@@ -17,9 +16,11 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
 )
 
 class AddClipForm extends React.Component {
-  renderError = error => {
+  renderSuccessOrErr = (error, success) => {
     if (error !== null) {
       return <div className="alert alert-danger">{error}</div>
+    } else if (success == true) {
+      return <div className="alert alert-success">Success</div>
     }
     ;<div />
   }
@@ -28,29 +29,32 @@ class AddClipForm extends React.Component {
     this.props.addClip({title: values.title, url: values.url, tag: values.tag})
   }
   render() {
+    let {clipError, successOnEdit} = this.props
     return (
-      <div className="addClip">
+      <div className="add-clip">
         <form onSubmit={this.props.handleSubmit(this.addClipWrapper)}>
-          <div>
-            <span>*Все поля обязательны</span>
+
+          {this.renderSuccessOrErr(clipError, successOnEdit)}
+
+          <div className="text-center">
+            <span>All fields required</span>
           </div>
-
-          {this.renderError(this.props.clipError)}
-
-          <Field
-            name="tag"
-            component={renderField}
-            validate={[required]}
-            type="text"
-            label="Tag*"
-          />
+          <div>
+            <span>Tag</span>
+          </div>
+          <Field name="tag" component="select" label="TAG" validate={[required]}>
+            <option />
+            <option value="weddings">weddings</option>
+            <option value="voice">voice</option>
+            <option value="other">other</option>
+          </Field>
 
           <Field
             name="title"
             component={renderField}
             validate={[required]}
             type="text"
-            label="Title*"
+            label="Title"
           />
 
           <Field
@@ -58,10 +62,12 @@ class AddClipForm extends React.Component {
             component={renderField}
             validate={[required, link]}
             type="text"
-            label="URL*"
+            label="URL"
           />
 
-          <button type="submit">Submit</button>
+          <button type="submit">
+            Submit
+          </button>
         </form>
       </div>
     )
@@ -69,7 +75,8 @@ class AddClipForm extends React.Component {
 }
 AddClipForm.PropTypes = {
   addClip: PropTypes.func.isRequired,
-  clipError: PropTypes.object
+  clipError: PropTypes.object,
+  successOnEdit: PropTypes.object
 }
 export default reduxForm({
   form: 'addClipForm'

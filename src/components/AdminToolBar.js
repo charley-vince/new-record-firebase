@@ -13,6 +13,7 @@ class ToolBar extends React.Component {
 
   close = () => {
     this.setState({showModal: false})
+    this.props.resetErrorAndSuccess()
   }
 
   open = () => {
@@ -27,20 +28,20 @@ class ToolBar extends React.Component {
       <div className="admin-navbar">
         <Navbar inverse collapseOnSelect>
           <Nav>
-            <NavItem onClick={this.open}>Добавить видео</NavItem>
-            <NavItem className="pull-right" onClick={this.wrapSignOut}>Выйти</NavItem>
+            <NavItem onClick={this.open}>Add video</NavItem>
+            <NavItem className="pull-right" onClick={this.wrapSignOut}>Logout</NavItem>
           </Nav>
         </Navbar>
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
-            <Modal.Title>Добавить видео</Modal.Title>
+            <Modal.Title>Add video</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <AddClipForm />
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Закрыть</Button>
+            <Button onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
 
@@ -51,6 +52,7 @@ class ToolBar extends React.Component {
 
 ToolBar.propTypes = {
   signOutAndRedirect: PropTypes.func.isRequired,
+  resetErrorAndSuccess: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 }
 

@@ -1,6 +1,12 @@
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {removeClip, setPresentationClip, getClipList} from '../actions/clip'
+import {
+  removeClip,
+  getClipList,
+  setEditedClip,
+  resetErrorAndSuccess,
+  getPresentationClip
+} from '../actions/clip'
 import {signOutAndRedirect} from '../actions/auth'
 import AdminPage from '../components/Admin'
 import {parseQuery} from '../utils/helpers'
@@ -18,7 +24,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    {getClipList, removeClip, setPresentationClip, signOutAndRedirect},
+    {getClipList, removeClip, signOutAndRedirect, setEditedClip, resetErrorAndSuccess,getPresentationClip},
     dispatch
   )
 }
