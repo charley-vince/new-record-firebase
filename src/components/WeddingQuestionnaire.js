@@ -23,6 +23,7 @@ class WeddingQuestionnaire extends React.Component {
             formData.append('photos[]', groomPhoto.files[0])
           }
           fetch('http://localhost:3001/wdata', {
+            //your endpoint here
             method: 'POST',
             body: formData
           })
