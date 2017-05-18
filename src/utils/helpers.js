@@ -1,3 +1,4 @@
+const URLSearchParams = require('url-search-params')
 class Cookie {
   setCookie(name, value, options) {
     options = options || {}
