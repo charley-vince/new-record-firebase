@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Navbar, Nav, NavItem, Modal, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, Modal} from 'react-bootstrap'
 import AddClipForm from '../containers/AddClipForm'
 
 class ToolBar extends React.Component {
@@ -27,22 +27,19 @@ class ToolBar extends React.Component {
     return (
       <div className="admin-navbar">
         <Navbar inverse collapseOnSelect>
-          <Nav>
+          <Nav className="admin-navbar-btns">
             <NavItem onClick={this.open}>Add video</NavItem>
             <NavItem className="pull-right" onClick={this.wrapSignOut}>Logout</NavItem>
           </Nav>
         </Navbar>
 
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal show={this.state.showModal} onHide={this.close} className="add-clip-modal">
           <Modal.Header closeButton>
             <Modal.Title>Add video</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <AddClipForm />
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
         </Modal>
 
       </div>

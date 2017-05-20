@@ -10,7 +10,9 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
   <div>
     <div>
       <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+      {touched &&
+        ((error && <span className="add-error">{error}</span>) ||
+          (warning && <span className="add-error">{warning}</span>))}
     </div>
   </div>
 )
@@ -39,9 +41,7 @@ class AddClipForm extends React.Component {
           <div className="text-center">
             <span>All fields required</span>
           </div>
-          <div>
-            <span>Tag</span>
-          </div>
+          <label>TAG</label>
           <Field name="tag" component="select" label="TAG" validate={[required]}>
             <option />
             <option value="weddings">weddings</option>

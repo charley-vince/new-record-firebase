@@ -13,8 +13,8 @@ const renderField = ({input, label, id, isDisabled, type, meta: {touched, error,
       <div className="input-wrapper">
         <input {...input} type={type} disabled={isDisabled} id={id} /><label htmlFor={id} />
         {touched &&
-          ((error && <span className="form-warn">{error}</span>) ||
-            (warning && <span className="form-warn">{warning}</span>))}
+          ((error && <span className="edit-error">{error}</span>) ||
+            (warning && <span className="edit-error">{warning}</span>))}
       </div>
     </div>
   )
@@ -42,12 +42,11 @@ class EditClipForm extends React.Component {
   render() {
     let {clip, presentationURL} = this.props
     return (
-      <div className="edit-clip">
+      <div>
         <form onSubmit={this.props.handleSubmit(this.editClipWrapper)}>
 
           {this.renderSuccessOrErr(this.props.clipError, this.props.successOnEdit)}
-          <div className="url">
-            <label>URL</label>
+          <div className="url text-center">
             <span>{clip.url}</span>
           </div>
           <label>TAG</label>

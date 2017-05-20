@@ -96,7 +96,7 @@ class AdminPage extends React.Component {
           <div className="col-md-offset-2 col-md-8 admin-panel">
             <div>
               <span>Chose video by tag</span>
-              <select name="tag" onChange={e => this.switchTag(e)} value={tag}>
+              <select name="tag" onChange={e => this.switchTag(e)} value={tag} className="select-by-tag">
                 <option value="weddings">weddings</option>
                 <option value="voice">voice</option>
                 <option value="other">other</option>
@@ -120,18 +120,13 @@ class AdminPage extends React.Component {
                 perPage={3}
                 clipButtons={this.clipButtons}
               />}
-          <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal show={this.state.showModal} onHide={this.close} className="edit-clip-modal">
             <Modal.Header closeButton>
               <Modal.Title>Edit video</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <EditClipForm />
             </Modal.Body>
-            <Modal.Footer>
-              <Button bsSize="lg" bsStyle="default" className="default-btn" onClick={this.close}>
-                Close
-              </Button>
-            </Modal.Footer>
           </Modal>
         </div>
       </div>

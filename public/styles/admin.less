@@ -9,42 +9,15 @@
         span {
             display: block;
         }
-    }
-}
 
-.add-clip {
-    input {
-        outline: 0;
-        background: #f2f2f2;
-        width: 100%;
-        border: 0;
-        margin: 30px 0 0;
-        padding: 15px;
-        box-sizing: border-box;
-        font-size: 14px;
-    }
-
-    button {
-        border-radius: 0;
-        color: #AE0C13;
-        background-color: white;
-        border: 1px solid #AE0C13;
-        margin-top: 30px;
-        width: 100%;
-        padding: 15px;
-        font-size: 14px;
-        text-transform: uppercase;
-    }
-
-    .btn:hover {
-        background-color: #AE0C13;
-        color: white;
-    }
-
-    .login-error {
-        position: absolute;
-        display: block;
-        color: #AE0C13;
+        .select-by-tag {
+            // padding: 15px;
+            // width: 30%;
+            background: #f2f2f2;
+            border-radius: 0;
+            box-shadow: none;
+            height: 40px;
+        }
     }
 }
 
@@ -104,73 +77,130 @@
     outline: none !important;
 }
 //EditClipForm
-.edit-buttons {
-    margin-top: 20px;
-    display: block;
 
-    button {
-        width: 100px;
-    }
-
-    .delete-btn {
-        float: right;
-    }
-}
-
-.default-btn {
-    width: 100px;
-}
-// .edit-clip .input-wrapper {
-//     outline: 0;
-//     background: #f2f2f2;
-//     width: 70%;
-//     border: 0;
-//     margin: 30px 0;
-//     padding: 15px;
-//     box-sizing: border-box;
-//     font-size: 14px;
-// }
-.edit-clip {
-    .url {
-        margin: 0 0 10px;
-
-        label {
-            display: block;
-        }
-
-        span {
-            height: 50px;
-            margin: 0 0 10px;
-            display: block;
+.add-clip-modal {
+    .add-clip {
+        input {
+            outline: 0;
             background: #f2f2f2;
-            width: 70%;
-            overflow: scroll;
-            margin: 0;
+            width: 100%;
+            border: 0;
+            margin: 30px 0 0;
             padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
         }
+
+        select {
+            display: block;
+            // margin: 30px 0 0;
+            padding: 15px;
+            width: 30%;
+            background: #f2f2f2;
+            border-radius: 0;
+            border: none;
+            box-shadow: none;
+            height: 40px;
+        }
+
+        button {
+            border-radius: 0;
+            color: #AE0C13;
+            background-color: white;
+            border: 1px solid #AE0C13;
+            margin-top: 30px;
+            width: 100%;
+            padding: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #AE0C13;
+            color: white;
+        }
+
+        .login-error {
+            position: absolute;
+            display: block;
+            color: #AE0C13;
+        }
+
+        .add-error {
+            position: absolute;
+            display: block;
+            color: #AE0C13;
+        }
+    }
+}
+
+.edit-clip-modal {
+    .url {
+        margin: 0 0 20px;
+        overflow: scroll;
+    }
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+    select {
+        display: block;
+        margin: 0 0 20px;
+        padding: 15px;
+        width: 30%;
+        background: #f2f2f2;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        height: 40px;
     }
 
     input {
-        height: 50px;
-        background-color: white;
-        width: 70%;
-        margin: 0 0 10px;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 20px;
         padding: 15px;
-        border: 3px solid #f2f2f2;
+        box-sizing: border-box;
+        font-size: 14px;
         overflow: scroll;
     }
 
-    select {
-        height: 50px;
-        margin: 0 0 10px;
+    .edit-error {
+        position: absolute;
         display: block;
+        color: #AE0C13;
+    }
+
+    .edit-buttons {
+        margin-top: 20px;
+        display: block;
+
+        button {
+            border-radius: 0;
+            color: #AE0C13;
+            background-color: white;
+            border: 1px solid #AE0C13;
+            width: 100px;
+            padding: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #AE0C13;
+            color: white;
+        }
+
+        .delete-btn {
+            float: right;
+        }
+    }
+
+    .default-btn {
         width: 100px;
-        height: 50px;
-        margin: 0 0 10px;
-        padding: 15px;
-        outline: 0;
-        border: 3px solid #f2f2f2;
-        background-color: white;
     }
 
     #presentation-checkbox:checked,
@@ -250,8 +280,8 @@
         color: #aaa;
     }
 }
-
-.form-warn {
-    margin-left: 10px;
-    color: #C9302C;
+@media only screen and (max-width: 767px) {
+    .admin-navbar-btns li > a {
+        font-size: 1em !important;
+    }
 }
