@@ -51,7 +51,7 @@ module.exports = {
       {
         test: /\.(jpe?g|png|svg|gif)$/,
         use: [
-          'file?name=assets/img/[name].[ext]',
+          'file-loader?name=assets/img/[name].[ext]',
           {
             loader: 'image-webpack-loader',
             options: {
