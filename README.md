@@ -1,4 +1,4 @@
-=====================
+====================
 
 Website for video production company. Written in React+Redux+Firebase.
 

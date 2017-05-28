@@ -1,7 +1,7 @@
-let path = require('path')
-let webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
-// let CompressionPlugin = require('compression-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-module-source-map',
@@ -26,19 +26,21 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'less-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function() {
-                return [autoprefixer]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'less-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: function() {
+                  return [autoprefixer({browsers: ['last 2 versions']})]
+                }
               }
             }
-          }
-        ]
+          ]
+        })
       },
       {
         test: /\.(jpe?g|png|svg|gif)$/,
@@ -74,15 +76,7 @@ module.exports = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    // new CompressionPlugin({
-    // 	asset: '[path].gz[query]',
-    // 	algorithm: 'gzip',
-    // 	test: /\.(js|html)$/,
-    // 	threshold: 10240,
-    // 	minRatio: 0.8
-    // }),
-    // new webpack.IgnorePlugin(/redux-devtools-extension/),
-    // new webpack.IgnorePlugin(/redux-logger/),
+    new ExtractTextPlugin('assets/styles/styles.css'),
     new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
     new webpack.optimize.AggressiveMergingPlugin()
   ]
