@@ -23,6 +23,11 @@ app.use(require('webpack-hot-middleware')(compiler))
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.post('/api/wdata/save', (req, res) => {
+	console.log('request');
+	res.send('Hello world')
+});
+
 app.get('/*', function(req, res) {
 	res.sendFile(path.join(__dirname, 'index.html'))
 })
