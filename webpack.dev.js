@@ -21,8 +21,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      Styles: path.resolve(__dirname, './public/styles/'),
-      Images: path.resolve(__dirname, './public/img/')
+      Styles: path.resolve(__dirname, 'public/styles/'),
+      Images: path.resolve(__dirname, 'public/img/')
     }
   },
   module: {

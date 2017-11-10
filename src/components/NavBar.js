@@ -23,69 +23,48 @@ class NavBar extends React.Component {
     for (let i = 0; i < menuTabs.length; i++) {
       if (menuTabs[i] != header.portfolio.index) {
         tabs[i] = (
-          <li key={i}>
+          <button type="button" className="btn btn-link nr-navbar-btn" key={i}>
             <NavLink
               exact={menuHref[i] === '/'}
-              className="btn-menu-button"
-              activeClassName="active-page-button"
               to={menuHref[i]}
             >
               {menuTabs[i]}
             </NavLink>
-          </li>
+          </button>
         )
       } else {
         let portfolioTagList = header.portfolio
         tabs[i] = (
-          <li key={i} className="dropdown-nav-parent">
+          <button type="button" className="btn btn-link nr-navbar-btn position-static" key={i}>
             <NavLink
               to={menuHref[i].INDEX}
-              className={
-                pathname === '/portfolio' ? 'active-page-button btn-menu-button' : 'btn-menu-button'
-              }
             >
               {menuTabs[i]}
-              <div className="arrow" />
             </NavLink>
-            <ul className="dropdown-nav ">
-              <li>
+            <ul className="nr-navbar-menu-dropdown p-0 position-absolute">
+              <button type="button" className="btn btn-link nr-navbar-btn d-block">
                 <NavLink
-                  className={
-                    pathname === '/portfolio' && tag === 'weddings'
-                      ? 'active-page-button btn-menu-button'
-                      : 'btn-menu-button'
-                  }
                   to={menuHref[i].WEDDINGS_URL}
                 >
                   {portfolioTagList.weddings}
                 </NavLink>
-              </li>
-              <li>
+              </button>
+              <button type="button" className="btn btn-link nr-navbar-btn d-block">
                 <NavLink
-                  className={
-                    pathname === '/portfolio' && tag === 'voice'
-                      ? 'active-page-button btn-menu-button'
-                      : 'btn-menu-button'
-                  }
                   to={menuHref[i].VOICE_URL}
                 >
                   {portfolioTagList.voice}
                 </NavLink>
-              </li>
-              <li>
+              </button>
+              <button type="button" className="btn btn-link nr-navbar-btn d-block">
                 <NavLink
-                  className={
-                    pathname === '/portfolio' && tag === 'other'
-                      ? 'active-page-button btn-menu-button'
-                      : 'btn-menu-button'
-                  }
                   to={menuHref[i].OTHER_URL}
                 >
                   {portfolioTagList.commercialProjects}
                 </NavLink>
-              </li>
+              </button>
             </ul>
-          </li>
+          </button>
         )
       }
     }
@@ -94,61 +73,50 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default navbar-wrapper" role="navigation">
-        <div className="navbar-header navbar-header-center">
-          <button
-            type="button"
-            className="navbar-toggle"
-            data-toggle="collapse"
-            data-target=".navbar-collapse"
-          >
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-          </button>
-          <NavLink className="navbar-brand" to="/">
-            <img src={NavBarLogo} width="200" alt="New Record" id="navbar-logo" />
-          </NavLink>
-        </div>
-        <div className="navbar-collapse collapse">
-          <ul className="nav navbar-nav navbar-center">
-            {this.generateTabs()}
-
-            <ul id="lang-menu">
-              <li className="dropdown-lang-parent">
-                <div id="current-lang">
-                  {this.props.strings.cngLang}
-                  <div className="arrow" />
-                </div>
-                <ul className="dropdown-nav">
-                  <li>
-                    <a
-                      href="/"
-                      onClick={() => this.props.onChangeLanguage('ru')}
-                      className="btn-menu-button dropdown-button"
-                    >
-                      Русский
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/"
-                      onClick={() => this.props.onChangeLanguage('en')}
-                      className="btn-menu-button dropdown-button"
-                    >
-                      English
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-
-          </ul>
-        </div>
-      </nav>
+    <div className="container nr-navbar-container">
+      <div className="row justify-content-center">
+        <NavLink to="/">
+          <img  className="align-self-center mt-5 mb-4" width={170} src={NavBarLogo} title="New Record"/>
+        </NavLink>
+      </div>
+      <div className="row justify-content-center mb-3 nr-navbar-menu">
+          {this.generateTabs()}
+      </div>
+    </div>
     )
   }
 }
+
+
+{/*<ul id="lang-menu" style={{display: 'none'}}>
+  <li className="dropdown-lang-parent">
+    <div id="current-lang">
+		{this.props.strings.cngLang}
+      <div className="arrow" />
+    </div>
+    <ul className="dropdown-nav">
+      <li>
+        <a
+            href="/"
+            onClick={() => this.props.onChangeLanguage('ru')}
+            className="btn-menu-button dropdown-button"
+        >
+          Русский
+        </a>
+      </li>
+      <li>
+        <a
+            href="/"
+            onClick={() => this.props.onChangeLanguage('en')}
+            className="btn-menu-button dropdown-button"
+        >
+          English
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>*/}
+
 
 NavBar.propTypes = {
   onChangeLanguage: PropTypes.func.isRequired,
