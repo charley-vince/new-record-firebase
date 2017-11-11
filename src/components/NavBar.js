@@ -73,50 +73,19 @@ class NavBar extends React.Component {
 
   render() {
     return (
-    <div className="container nr-navbar-container">
+    <div className="container-fluid nr-navbar-container">
       <div className="row justify-content-center">
         <NavLink to="/">
           <img  className="align-self-center mt-5 mb-4" width={170} src={NavBarLogo} title="New Record"/>
         </NavLink>
       </div>
-      <div className="row justify-content-center mb-3 nr-navbar-menu">
+      <div className="row justify-content-center pb-3 nr-navbar-menu">
           {this.generateTabs()}
       </div>
     </div>
     )
   }
 }
-
-
-{/*<ul id="lang-menu" style={{display: 'none'}}>
-  <li className="dropdown-lang-parent">
-    <div id="current-lang">
-		{this.props.strings.cngLang}
-      <div className="arrow" />
-    </div>
-    <ul className="dropdown-nav">
-      <li>
-        <a
-            href="/"
-            onClick={() => this.props.onChangeLanguage('ru')}
-            className="btn-menu-button dropdown-button"
-        >
-          Русский
-        </a>
-      </li>
-      <li>
-        <a
-            href="/"
-            onClick={() => this.props.onChangeLanguage('en')}
-            className="btn-menu-button dropdown-button"
-        >
-          English
-        </a>
-      </li>
-    </ul>
-  </li>
-</ul>*/}
-
 
 NavBar.propTypes = {
   onChangeLanguage: PropTypes.func.isRequired,

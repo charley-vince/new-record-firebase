@@ -8,7 +8,8 @@ const About = ({strings}) => {
   let partnersLogo = logos.map((item, index) => {
     return (
       <img
-        className=" col-lg-3 col-md-3 col-sm-3 col-xs-3 partner-logo img-responsive"
+        className=" col-lg-3 col-md-3 col-sm-3 col-xs-3"
+        height={150}
         key={index}
         alt={item.name}
         src={item.url}
@@ -19,108 +20,97 @@ const About = ({strings}) => {
   let productionItems = strings.productionItems
 
   return (
-    <div className="container default-height-container about-wrapper">
-      <h2 className="about-header text-center">
-        {strings.index}
-      </h2>
-      <div className="row">
-        <div className=" col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 about-decoration-blockborder" />
-      </div>
-
-      <div className="row">
-        <div className="about-text col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8
-          col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
-          <span>
+      <div className="container nr-about-container">
+        <h2 className="text-center nr-about-header mt-5">
+            {strings.index}
+        </h2>
+        <div className="my-2 nr-about-blockborder w-100"/>
+        <div className="text-center mx-5 nr-about-text-content">
+           <span>
             {strings.text}
           </span>
         </div>
-      </div>
-      <div className="row">
-        <div className=" col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10
-                     col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10 about-decoration-blockborder" />
-      </div>
+        <div className="my-2 nr-about-blockborder w-100"/>
 
-      <div className="row">
-        <div className="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div className="item-icon">
+        <div className="row nr-about-positives my-5">
+          <div className="nr-about-positive col-sm-4 col-lg-3 ">
+            <div className="nr-about-positive-icon text-center">
+              <span>
+                <i className="fa fa-industry fa-3x" aria-hidden="true" />
+              </span>
+            </div>
+            <div className="nr-about-positive-title text-center">
+              <span>{productionItems.production[0]}</span>
+            </div>
+            <ul className="nr-about-positive-ul">
+              <li>{productionItems.production[1]}</li>
+              <li>{productionItems.production[2]}</li>
+              <li>{productionItems.production[3]}</li>
+              <li>{productionItems.production[4]}</li>
+              <li>{productionItems.production[5]}</li>
+            </ul>
+          </div>
+          <div className="nr-about-positive col-lg-3 col-sm-4">
+            <div className="nr-about-positive-icon text-center">
             <span>
-              <i className="fa fa-industry fa-4x" aria-hidden="true" />
+              <i className="fa fa-video-camera fa-3x" aria-hidden="true" />
             </span>
+            </div>
+
+            <div className="nr-about-positive-title text-center">
+              <span>{productionItems.videography[0]}</span>
+            </div>
+            <ul className="nr-about-positive-ul">
+              <li>{productionItems.videography[1]}</li>
+              <li>{productionItems.videography[2]}</li>
+              <li>{productionItems.videography[3]}</li>
+              <li>{productionItems.videography[4]}</li>
+            </ul>
           </div>
-          <div className="item-title">
-            <span>{productionItems.production[0]}</span>
-          </div>
-          <ul className="ul-center">
-            <li>{productionItems.production[1]}</li>
-            <li>{productionItems.production[2]}</li>
-            <li>{productionItems.production[3]}</li>
-            <li>{productionItems.production[4]}</li>
-            <li>{productionItems.production[5]}</li>
-          </ul>
-        </div>
-        <div className="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div className="item-icon">
+          <div className="nr-about-positive col-sm-4 col-lg-3 ">
+            <div className="nr-about-positive-icon text-center">
             <span>
-              <i className="fa fa-video-camera fa-4x" aria-hidden="true" />
+              <i className="fa fa-wrench fa-3x" aria-hidden="true" />
             </span>
-          </div>
+            </div>
 
-          <div className="item-title">
-            <span>{productionItems.videography[0]}</span>
+            <div className="nr-about-positive-title text-center">
+              <span>{productionItems.postproduction[0]}</span>
+            </div>
+            <ul className="nr-about-positive-ul">
+              <li>{productionItems.postproduction[1]}</li>
+              <li>{productionItems.postproduction[2]}</li>
+              <li>{productionItems.postproduction[3]}</li>
+            </ul>
           </div>
-          <ul className="ul-center">
-            <li>{productionItems.videography[1]}</li>
-            <li>{productionItems.videography[2]}</li>
-            <li>{productionItems.videography[3]}</li>
-            <li>{productionItems.videography[4]}</li>
-          </ul>
-        </div>
-        <div className="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div className="item-icon">
+          <div className="nr-about-positive col-sm-4 col-lg-3 ">
+            <div className="nr-about-positive-icon text-center">
             <span>
-              <i className="fa fa-wrench fa-4x" aria-hidden="true" />
+              <i className="fa fa-microphone fa-3x" aria-hidden="true" />
             </span>
-          </div>
+            </div>
 
-          <div className="item-title">
-            <span>{productionItems.postproduction[0]}</span>
+            <div className="nr-about-positive-title text-center">
+              <span>{productionItems.voice[0]}</span>
+            </div>
+            <ul className="nr-about-positive-ul">
+              <li>{productionItems.voice[1]}</li>
+              <li>{productionItems.voice[2]}</li>
+              <li>{productionItems.voice[3]}</li>
+            </ul>
           </div>
-          <ul className="ul-center">
-            <li>{productionItems.videography[1]}</li>
-            <li>{productionItems.videography[2]}</li>
-            <li>{productionItems.videography[3]}</li>
-          </ul>
         </div>
-        <div className="item col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div className="item-icon">
-            <span>
-              <i className="fa fa-microphone fa-4x" aria-hidden="true" />
-            </span>
-          </div>
 
-          <div className="item-title">
-            <span>{productionItems.voice[0]}</span>
-          </div>
-          <ul className="ul-center">
-            <li>{productionItems.voice[1]}</li>
-            <li>{productionItems.voice[2]}</li>
-            <li>{productionItems.voice[3]}</li>
-          </ul>
-        </div>
-      </div>
 
-      <div className="row">
-        <div className="our-clients-title col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <span>
+        <div className="text-center nr-about-clients-header w-100">
             {strings.ourClients}
-          </span>
         </div>
-      </div>
 
-      <div className="clients-logo">
-        {partnersLogo}
+        <div className="nr-about-clients-icons px-5">
+	        {partnersLogo}
+        </div>
+
       </div>
-    </div>
   )
 }
 
