@@ -35,7 +35,7 @@ export default {
   Contacts: {
     index: 'Contact us :',
     phoneNumber: '+375 (29) 638-71-21',
-    address: 'Gorodetskaya.st 32/1,79 Minsk,Belarus'
+    address: 'Gorodetskaya.st 32/1,79'
   },
   About: {
     index: 'About',

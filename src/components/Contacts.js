@@ -5,57 +5,40 @@ require('Styles/contacts.less')
 
 const Contacts = ({strings}) => {
   return (
-    <div className="container text-center default-height-container contacts-wrapper">
-      <h2 className="contact-header ">
-        {strings.index}
-      </h2>
-
-      <div className="row">
-        <div className="col-lg-offset-2 col-lg-3 col-md-offset-2 col-md-3 col-sm-offset-1 col-sm-4 col-xs-offset-2 col-xs-8">
-          <div className="contact text-left">
-            <span className="contact-fa">
-              <i className="fa fa-mobile fa-4x" />
-            </span>
-            <span className="text-center contact-text">
-              {strings.phoneNumber}
-            </span>
-          </div>
-
-          <div className="contact text-left">
-            <span className="contact-fa">
-              <i className="fa fa-map-marker fa-4x" />
-            </span>
-            <span className="text-center contact-text">
-              {strings.address}
-            </span>
-          </div>
+      <div className="container-fluid default-height-container nr-contacts-container">
+        <div className="w-100 text-center mt-5">
+          <h2 className="nr-contacts-header">{strings.index}</h2>
         </div>
 
-        <div className="col-lg-2 col-md-2 col-sm-2 hidden-xs contacts-border-wrapper">
-          <div className="contacts-border" />
-        </div>
+        <div className="row nr-contacts-info align-items-start justify-content-center my-5 pt-5">
+          <div className="nr-contacts-info-left px-1">
+            <div className="d-flex align-items-center justify-content-between">
+              <span><i className="fa fa-mobile fa-2x" /></span>
+              <span className="pl-1 nr-contacts-info-text">{strings.phoneNumber}</span>
+            </div>
 
-        <div className="col-lg-3 col-md-3 col-sm-offset-0 col-sm-4 col-xs-offset-2 col-xs-8">
-          <div className="contact text-left">
-            <span className="contact-fa">
-              <i className="fa fa-envelope fa-3x" />
-            </span>
-            <span className="text-center contact-text">
-              newrec@gmail.com
-            </span>
+            <div className="d-flex align-items-center justify-content-between">
+              <span><i className="nr-contacts-ga-mark fa fa-map-marker" /></span>
+              <span className="pl-1 nr-contacts-info-text">{strings.address}</span>
+            </div>
           </div>
 
-          <div className="contact text-left ">
-            <span className="contact-fa">
-              <i className="fa fa-vk fa-4x" />
-            </span>
-            <span className="text-center contact-text">
-              <a href="https://vk.com/newreccom"><span>vk.com/newreccom</span></a>
-            </span>
+          <div className="mx-4 nr-contacts-info-border"/>
+
+          <div className="nr-contacts-info-right px-1">
+            <div className="d-flex align-items-center justify-content-between">
+              <span><i className="fa fa-envelope fa-1x" /></span>
+              <span className="pl-1 nr-contacts-info-text">newrec@gmail.com</span>
+            </div>
+
+            <div className="d-flex align-items-center justify-content-between">
+              <span><i className="fa fa-vk fa-1x" /></span>
+              <span className="pl-1 nr-contacts-info-text"><a href="https://vk.com/newreccom"><span>vk.com/newreccom</span></a></span>
+            </div>
           </div>
+
         </div>
       </div>
-    </div>
   )
 }
 
