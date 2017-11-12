@@ -2,26 +2,22 @@
 
 
 
-.edit-clip-modal {
+.nr-admin-video-edit-container {
     .url {
         margin: 0 0 20px;
-        overflow: scroll;
+        overflow-x: auto;
     }
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    font-size: 1rem;
+
 
     select {
         display: block;
-        margin: 0 0 20px;
-        padding: 15px;
         width: 30%;
         background: #f2f2f2;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
         height: 40px;
+        cursor: pointer;
+        padding-left: 15px;
+        text-align: center;
     }
 
     input {
@@ -29,17 +25,14 @@
         background: #f2f2f2;
         width: 100%;
         border: 0;
-        margin: 0 0 20px;
-        padding: 15px;
-        box-sizing: border-box;
-        font-size: 14px;
-        overflow: scroll;
+        overflow-x: auto;
     }
 
     .edit-error {
         position: absolute;
         display: block;
         color: #AE0C13;
+        font-size: 0.8rem;
     }
 
     .edit-buttons {
@@ -48,28 +41,15 @@
 
         button {
             border-radius: 0;
-            color: #AE0C13;
-            background-color: white;
-            border: 1px solid #AE0C13;
             width: 100px;
-            padding: 15px;
-            font-size: 14px;
             text-transform: uppercase;
-        }
-
-        .btn:hover {
-            background-color: #AE0C13;
-            color: white;
-        }
-
-        .delete-btn {
-            float: right;
         }
     }
 
     .default-btn {
         width: 100px;
     }
+
 
     #presentation-checkbox:checked,
     #presentation-checkbox:not(:checked) {

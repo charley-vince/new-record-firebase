@@ -11,7 +11,7 @@ const renderField = ({input, label, id, isDisabled, type, meta: {touched, error,
     <div>
       <label>{label}</label>
       <div className="input-wrapper">
-        <input {...input} type={type} disabled={isDisabled} id={id} /><label htmlFor={id} />
+        <input className="p-2 mb-2 w-100" {...input} type={type} disabled={isDisabled} id={id} /><label htmlFor={id} />
         {touched &&
           ((error && <span className="edit-error">{error}</span>) ||
             (warning && <span className="edit-error">{warning}</span>))}
@@ -42,7 +42,7 @@ class EditClipForm extends React.Component {
   render() {
     let {clip, presentationURL} = this.props
     return (clip?
-      <div>
+      <div className="nr-admin-video-edit-container">
         <form onSubmit={this.props.handleSubmit(this.editClipWrapper)}>
 
           {this.renderSuccessOrErr(this.props.clipError, this.props.successOnEdit)}
@@ -50,7 +50,7 @@ class EditClipForm extends React.Component {
             <span>{clip.url}</span>
           </div>
           <label>TAG</label>
-          <Field name="tag" component="select" label="TAG">
+          <Field className="mb-3" name="tag" component="select" label="Tag">
             <option value="weddings">weddings</option>
             <option value="voice">voice</option>
             <option value="other">other</option>
@@ -74,18 +74,16 @@ class EditClipForm extends React.Component {
             isDisabled={clip.url === presentationURL}
           />
 
-          <div className="edit-buttons">
-            <Button bsSize="lg" bsStyle="success" className="edit-btn" type="submit">
-              Save
-            </Button>
-            <Button
-              bsStyle="danger"
-              bsSize="lg"
-              className="delete-btn"
+          <div className="d-flex justify-content-between edit-buttons">
+            <button
+              className="btn btn-danger"
               onClick={() => this.props.removeClip(clip.id)}
             >
               Delete
-            </Button>
+            </button>
+            <button  className="btn btn-success" type="submit">
+              Save
+            </button>
           </div>
         </form>
       </div>:null

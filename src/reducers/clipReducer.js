@@ -5,7 +5,7 @@ const initialState = {
     tag: '',
     clips: []
   },
-  editClip: null,
+  editedClip: {},
   presentationURL: '',
   isFetching: false
 }

@@ -12,7 +12,7 @@ const email = value =>
     : undefined
 
 const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
-  <div className="mt-4 mb-5 input-login-form">
+  <div className="p-2 mt-2 input-login-form">
     <input {...input} placeholder={label} type={type} />
     {touched &&
       ((error && <span className="login-error">{error}</span>) ||
@@ -63,7 +63,7 @@ class Login extends React.Component {
                 type="text"
                 label="Password"
               />
-              <Button type="submit" bsStyle="danger">Submit</Button>
+              <button  className="w-25 p-2 btn btn-danger " type="submit" >Submit</button>
             </div>
           </form>
         </div>

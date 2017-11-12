@@ -21,7 +21,7 @@ class Home extends React.Component {
       )
     }
     return (
-      <div className="default-height-container">
+      <div className="nr-home-container default-height-container">
         {isEmpty
           ? isFetching ? <Loading /> : <div className="default-height-container" />
           : <iframe className="home-clip" src={presentationURL} frameBorder="0" allowFullScreen />}

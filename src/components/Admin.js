@@ -11,6 +11,9 @@ require('Styles/admin.less')
 class AdminPage extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+        showModal: false
+    }
   }
   componentWillMount() {
     if (!this.props.authenticated) {
@@ -21,6 +24,11 @@ class AdminPage extends React.Component {
     if (this.props.tag != nextProps.tag) {
       this.props.getClipList(nextProps.tag)
     }
+
+    if (this.props.clipList.clips.length > nextProps.clipList.clips.length) {
+	    $('#nr-admin-video-edit').modal('hide');
+        this.setState({showModal: false})
+    }
   }
   componentDidMount() {
     if (this.props.clipList.tag != this.props.tag) {
@@ -28,6 +36,12 @@ class AdminPage extends React.Component {
     }
     this.props.getPresentationClip()
   }
+
+	close = () => {
+		$('#nr-admin-video-edit').modal('hide');
+		this.setState({showModal: false})
+		this.props.resetErrorAndSuccess()
+	}
 
   switchTag = e => {
     if (this.props.tag != e.target.value) {
@@ -41,7 +55,11 @@ class AdminPage extends React.Component {
 
   renderEditClipForm = clip => {
     this.props.setEditedClip(clip);
-    $('#nr-admin-video-edit').modal('show');
+    this.setState({showModal: true}, () => {
+	    $('#nr-admin-video-edit').modal({
+            backdrop: 'static'
+        });
+    })
   }
 
 
@@ -88,21 +106,23 @@ class AdminPage extends React.Component {
                 clips={clipList.clips}
                 clipButtons={this.clipButtons}
               />}
-          <div className="modal fade" id="nr-admin-video-edit"  role="dialog" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Edit video</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+	        {this.state.showModal ?
+              <div className="modal fade" id="nr-admin-video-edit" role="dialog" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="exampleModalLabel">Edit video</h5>
+                      <button type="button" className="close" onClick={() => this.close()} aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div className="modal-body p-4">
+                      <EditClipForm/>
+                    </div>
+                  </div>
                 </div>
-                <div className="modal-body p-4">
-                  <EditClipForm/>
-                </div>
-              </div>
-            </div>
-          </div>
+              </div>: null
+	        }
         </div>
       </div>
     )
