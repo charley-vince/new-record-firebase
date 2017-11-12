@@ -1,15 +1,10 @@
-.login-wrapper {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
 
 .login-window {
-    z-index: 1;
+    font-size: 1.2rem;
     background: #FFFFFF !important;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 22vw;
+    min-width: 250px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
@@ -19,13 +14,13 @@
             background: #f2f2f2;
             width: 100%;
             border: 0;
-            margin: 30px 0 0;
             padding: 15px;
             box-sizing: border-box;
-            font-size: 14px;
+            font-size: 1rem;
         }
 
         button {
+            cursor: pointer;
             border-radius: 0;
             color: #AE0C13;
             background-color: white;
@@ -33,7 +28,6 @@
             margin-top: 30px;
             width: 100%;
             padding: 15px;
-            font-size: 14px;
             text-transform: uppercase;
         }
 
@@ -46,36 +40,7 @@
             position: absolute;
             display: block;
             color: #AE0C13;
-        }
-    }
-}
-@media only screen and (max-width: 414px) {
-    .login-window {
-        max-width: 80%;
-    }
-}
-@media only screen and (min-width: 1600px) {
-    .login-wrapper {
-        padding-top: 120px;
-    }
-
-    .login-window {
-        max-width: 600px;
-
-        .login-layout {
-            input {
-                margin-top: 50px;
-                font-size: 24px;
-            }
-
-            button {
-                margin-top: 50px;
-                font-size: 24px;
-            }
-
-            .login-error {
-                font-size: 24px;
-            }
+            font-size: 1rem;
         }
     }
 }

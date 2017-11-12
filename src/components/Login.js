@@ -12,7 +12,7 @@ const email = value =>
     : undefined
 
 const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
-  <div className="input-login-form">
+  <div className="mt-4 mb-5 input-login-form">
     <input {...input} placeholder={label} type={type} />
     {touched &&
       ((error && <span className="login-error">{error}</span>) ||
@@ -41,8 +41,8 @@ class Login extends React.Component {
     // let strings = this.props.strings
 
     return (
-      <div className="default-height-container login-wrapper">
-        <div className="login-window">
+      <div className="default-height-container d-flex align-items-center justify-content-center my-3 ">
+        <div className="login-window p-4">
 
           {this.renderAuthenticationError(this.props.authenticationError)}
 
