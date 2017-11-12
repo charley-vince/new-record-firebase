@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 
 const Clip = ({clipURL}) => {
   return (
-    <div className="center-block clip-wrapper">
-      <iframe src={clipURL} frameBorder="0" allowFullScreen className="clip" />
-    </div>
+      <iframe src={clipURL} frameBorder="0" allowFullScreen className="nr-portfolio-clip m-3"/>
   )
 }
 

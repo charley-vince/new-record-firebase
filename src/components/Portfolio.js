@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ClipList from './ClipList'
 import Loading from './Loading'
 import Notification from './Notification'
+import Clip from './Clip'
+require('Styles/clipslist.less')
 
 class Portfolio extends React.Component {
   constructor(props) {
     super(props)
-    this.changePage = this.changePage.bind(this)
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.tag != nextProps.tag) {
@@ -19,14 +19,14 @@ class Portfolio extends React.Component {
       this.props.getClipList(this.props.tag)
     }
   }
-  changePage = newPage => {
-    this.props.history.push({
-      pathname: this.props.location.pathname,
-      search: '?tag=' + this.props.tag + '&page=' + newPage + ''
-    })
-  }
+	renderClipWrapper = () => {
+          return function(clip) {
+              return <Clip clipURL={clip.url} key={clip.id} />
+		}
+	}
   render() {
-    const {isFetching, clipList, activePage, tag, clipError} = this.props
+    const renderClip = this.renderClipWrapper()
+    const {isFetching, clipList, tag, clipError} = this.props
     //Consider empty if clips for current tag weren't fetched, or fetched empty list
     const isEmpty = clipList.tag != tag || clipList.clips.length === 0
     if (clipError && isEmpty) {
@@ -41,14 +41,9 @@ class Portfolio extends React.Component {
       )
     }
     return (
-      <div className="default-height-container">
+      <div className="d-flex flex-wrap justify-content-center align-items-center default-height-container nr-portfolio-container p-5">
         {!isEmpty
-          ? <ClipList
-              perPage={3}
-              clips={clipList.clips}
-              activePage={activePage}
-              changePage={this.changePage}
-            />
+          ?  clipList.clips.map(clip => renderClip(clip))
           : <div />}
       </div>
     )

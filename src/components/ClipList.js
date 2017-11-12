@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Clip from './Clip'
-import {Pagination} from 'react-bootstrap'
 require('Styles/clipslist.less')
 
 class ClipList extends React.Component {
@@ -37,47 +36,17 @@ class ClipList extends React.Component {
   }
 
   render() {
-    const {clips, activePage, changePage, perPage, clipButtons} = this.props
+    const {clips, clipButtons} = this.props
     const pages = Math.ceil(clips.length / perPage)
     const renderClip = this.renderClipWrapper(clipButtons)
-    if (clips.length == 0) {
+    if (clips.length === 0) {
       return <div className="default-height-container" />
     }
 
     return (
-      <div
-        className={
-          clipButtons ? 'container-fluid admin-clips-wrapper' : 'container-fluid text-center'
-        }
-      >
-        <div className="row">
-          <Pagination
-            className={clips.length === 0 ? 'hidden' : 'shown pagination-color'}
-            prev
-            next
-            bsClass="custom-pagination"
-            bsSize="medium"
-            items={pages}
-            activePage={activePage}
-            onSelect={changePage}
-          />
-
-          <div className="clips-wrapper">
-            {this.clipsPerPage(clips, perPage, activePage).map(clip => renderClip(clip))}
-          </div>
-
-          <Pagination
-            className={clips.length === 0 ? 'hidden' : 'shown pagination-color'}
-            prev
-            next
-            bsClass="custom-pagination"
-            bsSize="medium"
-            items={pages}
-            activePage={activePage}
-            onSelect={changePage}
-          />
+        <div className="d-flex container-fluid default-height-container justify-content-around align-items-center px-5">
+            {clips.map(clip => renderClip(clip))}
         </div>
-      </div>
     )
   }
 }
@@ -89,7 +58,6 @@ ClipList.propTypes = {
       url: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  activePage: PropTypes.number.isRequired,
   clipButtons: PropTypes.func
 }
 

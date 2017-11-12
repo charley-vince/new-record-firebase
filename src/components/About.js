@@ -24,13 +24,13 @@ const About = ({strings}) => {
         <h2 className="text-center nr-about-header mt-5">
             {strings.index}
         </h2>
-        <div className="my-2 nr-about-blockborder w-100"/>
+        <div className="my-5 nr-about-blockborder w-100"/>
         <div className="text-center mx-5 nr-about-text-content">
            <span>
             {strings.text}
           </span>
         </div>
-        <div className="my-2 nr-about-blockborder w-100"/>
+        <div className="my-5 nr-about-blockborder w-100"/>
 
         <div className="row nr-about-positives my-5">
           <div className="nr-about-positive col-sm-4 col-lg-3 ">

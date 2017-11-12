@@ -1,93 +1,13 @@
-//clips-list
-
-.clips-wrapper .clip-wrapper:first-child {
-    margin-top: 0 !important;
-}
-
-.clips-wrapper .clip-wrapper:last-child {
-    margin-bottom: 0 !important;
-}
-
-.clip-wrapper {
-    animation: softRender 0.5s 1 ease;
-    // width: inherit;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.clip {
-    animation: softRender 0.5s 1 ease;
-    box-shadow: 2px 2px 8px 3px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    height: 400px;
-    width: 60%;
-}
-//pagintaion
-
-.custom-pagination {
-    clear: both;
-    padding-top: 25px;
-    padding-bottom: 20px;
-    padding-left: 0;
-
-    li:not(:first-child) {
-        margin-left: 10px;
+.nr-portfolio-container {
+    background-color: rgb(34, 34, 34);
+    .nr-portfolio-clip {
+        width: 40vw;
+        min-width: 200px;
+        height: 20vw;
+        cursor: pointer;
+        box-shadow: 0px 0px 15px 5px #000;
     }
-
-    li.active {
-        transition: box-shadow 0.2s ease-out;
-        -moz-transition: box-shadow 0.2s ease-out;
-        -o-transition: box-shadow 0.2s ease-out;
-        -webkit-transition: box-shadow 0.2s ease-out;
-        box-shadow: 0 0 5px #AD1318;
-    }
-
-    li.active,
-    li.disabled {
-        a {
-            color: #606060;
-        }
-    }
-
-    li {
-        font-size: 1.7em;
-        display: inline-block;
-        border: none;
-        width: 50px;
-        border-radius: 8px;
-
-        a {
-            font-family: blogger;
-            display: inline-block;
-            width: 100%;
-            text-decoration: none;
-            color: black;
-            outline: none;
-        }
-    }
-}
-@media only screen and (max-width: 767px) {
-    .clip {
-        height: 200px;
-    }
-}
-@media only screen and (min-width: 1600px) {
-    .clip-wrapper {
-        margin-top: 60px;
-        margin-bottom: 60px;
-    }
-
-    .clip {
-        width: 40%;
-    }
-
-    .custom-pagination {
-        li {
-            font-size: 1.7em !important;
-        }
-    }
-}
-@media only screen and (max-width:480px) {
-    .clips-wrapper .clip-wrapper .clip {
-        width: 250px !important;
+    .nr-portfolio-clip:hover{
+        box-shadow: 0px 0px 15px 5px #fff;
     }
 }
