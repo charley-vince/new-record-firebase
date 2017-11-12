@@ -35,7 +35,7 @@ class NavBar extends React.Component {
       } else {
         let portfolioTagList = header.portfolio
         tabs[i] = (
-          <button type="button" className="btn btn-link nr-navbar-btn position-static" key={i}>
+          <button type="button" className="btn btn-link nr-navbar-btn position-relative" key={i}>
             <NavLink
               to={menuHref[i].INDEX}
             >
@@ -72,6 +72,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    let localeFlagName = "nr-navbar-locale flag flag-icon-background flag-icon-" + this.props.strings.cngLang;
     return (
     <div className="container-fluid nr-navbar-container">
       <div className="row justify-content-center">
@@ -81,7 +82,33 @@ class NavBar extends React.Component {
       </div>
       <div className="row justify-content-center pb-3 nr-navbar-menu">
           {this.generateTabs()}
+        <ul className="nr-navbar-locales position-absolute">
+          <li className="position-relative">
+            <div className={localeFlagName} ></div>
+            <ul className="nr-navbar-locales-dropdown position-absolute p-0 pb-1">
+              <li className="text-center">
+                <a
+                    href="/"
+                    onClick={() => this.props.onChangeLanguage('ru')}
+                >
+                  <div className="d-inline-block nr-navbar-locale flag flag-icon-background flag-icon-ru mr-1"></div>
+                  RU
+                </a>
+              </li>
+              <li className="text-center">
+                <a
+                    href="/"
+                    onClick={() => this.props.onChangeLanguage('us')}
+                >
+                  <div className="d-inline-block nr-navbar-locale flag flag-icon-background flag-icon-us mr-1"></div>
+                  US
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
+
     </div>
     )
   }

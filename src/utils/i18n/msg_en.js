@@ -9,7 +9,7 @@ export default {
     },
     contacts: 'Contacts',
     about: 'About',
-    cngLang: 'lang'
+    cngLang: 'us'
   },
 
   ClipBar: {

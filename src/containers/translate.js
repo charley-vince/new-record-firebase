@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import en from '../utils/i18n/msg_en'
+import us from '../utils/i18n/msg_en'
 import ru from '../utils/i18n/msg_ru'
 
 const languages = {
-  en,
+  us,
   ru
 }
 

@@ -9,7 +9,45 @@
     border-top: 1px solid transparent;
     box-shadow: 0 -5px 10px 5px rgba(178, 178, 178, 0.9);
     .nr-navbar-menu {
+        .nr-navbar-locales {
+            top: 15px;
+            right: 15px;
+            list-style: none;
+            .nr-navbar-locales-dropdown {
+                list-style: none;
+                display: none;
+                background-color: #fff;
+                box-shadow: 0 1px 12px black;
+                right: -5px;
+                top: 18px;
+
+                li {
+                    line-height: 20px;
+                    width: 60px;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: #000000;
+                font-size: 0.8rem;
+            }
+
+            &:hover {
+                .nr-navbar-locales-dropdown {
+                    display: block;
+                }
+            }
+
+            .nr-navbar-locale {
+                cursor: pointer;
+                height: 15px;
+                width: 20px;
+            }
+        }
+
         .nr-navbar-menu-dropdown {
+            right: -15px;
             font-size: 1rem;
             display: none;
             background-color: #fff;

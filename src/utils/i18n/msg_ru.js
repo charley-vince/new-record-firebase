@@ -9,7 +9,7 @@ export default{
         },
         "contacts": "Контакты",
         "about": "О нас",
-        "cngLang": "язык"
+        "cngLang": "ru"
     },
 
     Contacts: {

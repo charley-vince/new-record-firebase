@@ -2,7 +2,7 @@ import {CHANGE_LANGUAGE} from '../actions/actionTypes'
 import cookie from '../utils/helpers'
 
 const initialState = {
-  currentLang: cookie.getCookie('lang') || 'en'
+  currentLang: cookie.getCookie('lang') || 'us'
 }
 
 export default function(state = initialState, action) {
