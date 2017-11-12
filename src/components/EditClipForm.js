@@ -41,7 +41,7 @@ class EditClipForm extends React.Component {
   }
   render() {
     let {clip, presentationURL} = this.props
-    return (
+    return (clip?
       <div>
         <form onSubmit={this.props.handleSubmit(this.editClipWrapper)}>
 
@@ -88,7 +88,7 @@ class EditClipForm extends React.Component {
             </Button>
           </div>
         </form>
-      </div>
+      </div>:null
     )
   }
 }

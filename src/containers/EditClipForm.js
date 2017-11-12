@@ -11,9 +11,9 @@ function mapStateToProps(state) {
     clipError: state.clipError.error,
     successOnEdit: state.clipEdit.successOnEdit,
     initialValues: {
-      tag: clip.tag,
-      title: clip.title,
-      isPresentation: clip.url == presentationURL ? true : false
+      tag: clip? clip.tag: null,
+      title: clip? clip.title: null,
+    /*  isPresentation: clip? clip.url === presentationURL: false*/
     },
     clip: clip
   }

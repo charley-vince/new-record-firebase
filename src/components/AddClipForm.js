@@ -9,7 +9,7 @@ const link = value => (value && !/^(f|ht)tps?:\/\//i.test(value) ? 'Invalid link
 const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
   <div>
     <div>
-      <input {...input} placeholder={label} type={type} />
+      <input {...input} className="p-2 mt-4 w-100" placeholder={label} type={type} />
       {touched &&
         ((error && <span className="add-error">{error}</span>) ||
           (warning && <span className="add-error">{warning}</span>))}
@@ -33,7 +33,7 @@ class AddClipForm extends React.Component {
   render() {
     let {clipError, successOnEdit} = this.props
     return (
-      <div className="add-clip">
+      <div className="nr-admin-add-clip-container">
         <form onSubmit={this.props.handleSubmit(this.addClipWrapper)}>
 
           {this.renderSuccessOrErr(clipError, successOnEdit)}
@@ -41,8 +41,8 @@ class AddClipForm extends React.Component {
           <div className="text-center">
             <span>All fields required</span>
           </div>
-          <label>TAG</label>
-          <Field name="tag" component="select" label="TAG" validate={[required]}>
+          <label>Tag</label>
+          <Field name="tag" component="select" label="Tag" validate={[required]}>
             <option />
             <option value="weddings">weddings</option>
             <option value="voice">voice</option>
@@ -65,7 +65,7 @@ class AddClipForm extends React.Component {
             label="URL"
           />
 
-          <button type="submit">
+          <button className="w-25 p-1 text-center d-flex mx-auto mt-4 justify-content-center" type="submit">
             Submit
           </button>
         </form>

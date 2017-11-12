@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Clip from './Clip'
-import {Pagination} from 'react-bootstrap'
 require('Styles/clipslist.less')
 
 class ClipList extends React.Component {
@@ -9,7 +8,7 @@ class ClipList extends React.Component {
     if (clipButtons) {
       return function(clip) {
         return (
-          <div key={clip.id} className="col-lg-4 col-md-4">
+          <div key={clip.id} className="mb-3">
             <Clip clipURL={clip.url} />
             {clipButtons(clip)}
           </div>
@@ -22,23 +21,8 @@ class ClipList extends React.Component {
     }
   }
 
-  clipsPerPage(clips, perPage, activePage) {
-    const start_offset = (activePage - 1) * perPage
-    let start_count = 0
-
-    let clipsToDisplay = []
-    clips.map((clip, index) => {
-      if (index >= start_offset && start_count < perPage) {
-        start_count++
-        clipsToDisplay.push(clip)
-      }
-    })
-    return clipsToDisplay
-  }
-
   render() {
-    const {clips, activePage, changePage, perPage, clipButtons} = this.props
-    const pages = Math.ceil(clips.length / perPage)
+    const {clips, clipButtons} = this.props
     const renderClip = this.renderClipWrapper(clipButtons)
     if (clips.length == 0) {
       return <div className="default-height-container" />
@@ -50,32 +34,8 @@ class ClipList extends React.Component {
           clipButtons ? 'container-fluid admin-clips-wrapper' : 'container-fluid text-center'
         }
       >
-        <div className="row">
-          <Pagination
-            className={clips.length === 0 ? 'hidden' : 'shown pagination-color'}
-            prev
-            next
-            bsClass="custom-pagination"
-            bsSize="medium"
-            items={pages}
-            activePage={activePage}
-            onSelect={changePage}
-          />
-
-          <div className="clips-wrapper">
-            {this.clipsPerPage(clips, perPage, activePage).map(clip => renderClip(clip))}
-          </div>
-
-          <Pagination
-            className={clips.length === 0 ? 'hidden' : 'shown pagination-color'}
-            prev
-            next
-            bsClass="custom-pagination"
-            bsSize="medium"
-            items={pages}
-            activePage={activePage}
-            onSelect={changePage}
-          />
+        <div className="row flex-wrap justify-content-center">
+            {clips.map(clip => renderClip(clip))}
         </div>
       </div>
     )
@@ -89,7 +49,6 @@ ClipList.propTypes = {
       url: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  activePage: PropTypes.number.isRequired,
   clipButtons: PropTypes.func
 }
 

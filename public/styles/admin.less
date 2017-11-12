@@ -1,138 +1,6 @@
-.admin-body {
-    margin: auto;
-    width: 90%;
-
-    .admin-panel {
-        display: flex;
-        justify-content: space-between;
-
-        span {
-            display: block;
-        }
-
-        .select-by-tag {
-            // padding: 15px;
-            // width: 30%;
-            background: #f2f2f2;
-            border-radius: 0;
-            box-shadow: none;
-            height: 40px;
-        }
-    }
-}
-
-.admin-navbar > .navbar {
-    border-radius: 0;
-    background-color: white;
-    border-left: none;
-    border-right: none;
-}
-
-.admin-clips-wrapper {
-    text-align: center;
-    display: inline;
-
-    .clip-wrapper {
-        margin-bottom: 0;
-
-        .clip {
-            width: auto;
-        }
-    }
-}
-
-.under-clip-buttons {
-    margin: 0 auto 10px;
-    width: 220px;
-    display: block;
-}
-
-.refresh-by-tag {
-    float: right;
-}
-
-.refresh-by-tag,
-.under-clip-buttons .btn {
-    border-radius: 0;
-    color: #AE0C13;
-    background-color: white;
-    border: 1px solid #AE0C13;
-}
-
-.refresh-by-tag:hover,
-.under-clip-buttons .btn:hover {
-    background-color: #AE0C13;
-    color: white;
-}
-
-.admin-wrapper .nav li {
-    float: left;
-}
-
-.admin-wrapper .nav > li,
-.admin-wrapper .nav li a {
-    color: black !important;
-    text-decoration: none;
-    border: none !important;
-    outline: none !important;
-}
 //EditClipForm
 
-.add-clip-modal {
-    .add-clip {
-        input {
-            outline: 0;
-            background: #f2f2f2;
-            width: 100%;
-            border: 0;
-            margin: 30px 0 0;
-            padding: 15px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
 
-        select {
-            display: block;
-            // margin: 30px 0 0;
-            padding: 15px;
-            width: 30%;
-            background: #f2f2f2;
-            border-radius: 0;
-            border: none;
-            box-shadow: none;
-            height: 40px;
-        }
-
-        button {
-            border-radius: 0;
-            color: #AE0C13;
-            background-color: white;
-            border: 1px solid #AE0C13;
-            margin-top: 30px;
-            width: 100%;
-            padding: 15px;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        .btn:hover {
-            background-color: #AE0C13;
-            color: white;
-        }
-
-        .login-error {
-            position: absolute;
-            display: block;
-            color: #AE0C13;
-        }
-
-        .add-error {
-            position: absolute;
-            display: block;
-            color: #AE0C13;
-        }
-    }
-}
 
 .edit-clip-modal {
     .url {
@@ -280,8 +148,81 @@
         color: #aaa;
     }
 }
-@media only screen and (max-width: 767px) {
-    .admin-navbar-btns li > a {
-        font-size: 1em !important;
+
+//new
+
+.nr-admin-container {
+    font-size: 1.0rem;
+
+    .nr-admin-navbar {
+        box-shadow: 0 -5px 10px 5px rgba(178, 178, 178, 0.9);
+        .btn {
+            cursor:pointer;
+        }
+
+
+    }
+    .nr-admin-add-clip-container {
+        input {
+            outline: 0;
+            background: #f2f2f2;
+            border: 0;
+        }
+        .add-error {
+            font-size: 0.8rem;
+        }
+
+        select {
+            display: block;
+            width: 30%;
+            background: #f2f2f2;
+            height: 40px;
+            cursor: pointer;
+            padding-left: 15px;
+            text-align: center;
+        }
+
+        button {
+            border-radius: 0;
+            color: #AE0C13;
+            background-color: white;
+            border: 1px solid #AE0C13;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: #AE0C13;
+                color: white;
+            }
+        }
+
+        .login-error {
+            position: absolute;
+            display: block;
+            color: #AE0C13;
+        }
+
+        .add-error {
+            position: absolute;
+            display: block;
+            color: #AE0C13;
+        }
+    }
+    .nr-admin-body-container {
+        .nr-admin-body-filters {
+            min-width: 250px;
+            box-shadow: 0 0px 2px 0px rgba(178, 178, 178, 1);
+
+            .nr-admin-body-select {
+                background: #f2f2f2;
+                height: 40px;
+                cursor: pointer;
+            }
+        }
+        .btn {
+            cursor:pointer;
+        }
     }
 }
+
