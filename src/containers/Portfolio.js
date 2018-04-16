@@ -8,7 +8,7 @@ import {parseQuery} from '../utils/helpers'
 
 function mapStateToProps(state, ownProps) {
   return {
-    clipList: state.clipPage.clipList,
+    contentList: state.clipPage.contentList,
     isFetching: state.clipPage.isFetching,
     clipError: state.clipError.error,
     activePage: parseInt(parseQuery(ownProps.location.search, 'page')),

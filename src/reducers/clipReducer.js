@@ -1,9 +1,9 @@
 import * as actions from '../actions/actionTypes'
 
 const initialState = {
-  clipList: {
+  contentList: {
     tag: '',
-    clips: []
+    data: []
   },
   editedClip: {},
   presentationURL: '',
@@ -20,15 +20,15 @@ export default function(state = initialState, action) {
 
     case actions.REMOVE_CLIP_SUCCESS: {
       let removedClipID = action.payload
-      let newClips = state.clipList.clips.filter(clip => {
-        return clip.id != removedClipID
+      let newClips = state.contentList.data.filter(item => {
+        return item.id != removedClipID
       })
-      return {...state, clipList: {...state.clipList, clips: newClips}}
+      return {...state, contentList: {...state.contentList, data: newClips}}
     }
     case actions.GET_CLIP_LIST_SUCCESS: {
       return {
         ...state,
-        clipList: {clips: action.payload.clips, tag: action.payload.tag},
+        contentList: {data: action.payload.data, tag: action.payload.tag},
         isFetching: false
       }
     }
@@ -45,13 +45,13 @@ export default function(state = initialState, action) {
     case actions.EDIT_CLIP_SUCCESS: {
       let editedClip = action.payload
       var newClips = []
-      state.clipList.clips.forEach(clip => {
-        if (clip.id == editedClip.id) {
-          clip = editedClip
+      state.contentList.data.forEach(item => {
+        if (item.id == editedClip.id) {
+          item = editedClip
         }
-        newClips.push(clip)
+        newClips.push(item)
       })
-      return {...state, clipList: {...state.clipList, clips: newClips}}
+      return {...state, contentList: {...state.contentList, data: newClips}}
     }
 
     default:

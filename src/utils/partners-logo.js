@@ -36,6 +36,26 @@ const logos = [
 	{
 		name: 'Khospis',
 		filename: 'khospis.svg'
+	},
+	{
+		name: 'd&d',
+		filename: 'd&d.svg'
+	},
+	{
+		name: 'KMA',
+		filename: 'pig.svg'
+	},
+	{
+		name: 'Openini',
+		filename: 'openini.svg'
+	},
+	{
+		name: 'Cuba studio',
+		filename: 'cuba_studio.svg'
+	},
+	{
+		name: 'Tedx',
+		filename: 'tedx.svg'
 	}
 ]
 
