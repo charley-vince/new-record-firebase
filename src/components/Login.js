@@ -60,7 +60,7 @@ class Login extends React.Component {
                 name="password"
                 component={renderField}
                 validate={[required]}
-                type="text"
+                type="password"
                 label="Password"
               />
               <button  className="w-25 p-2 btn btn-danger " type="submit" >Submit</button>
